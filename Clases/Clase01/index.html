@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,46 +13,48 @@
     <!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-    function Mostrar() {
-        var usuario = document.getElementById("usuario").value;
-        var pass = document.getElementById("contraseña").value;
-        
-        alert("Usuario ingresado:\n"+usuario+"\n"+pass);
-    }
-    function Limpiar() {
-        document.getElementById("usuario").value = "";
-        document.getElementById("contraseña").value = "";
-    }
+        function Mostrar() {
+            var usuario = document.getElementById("usuario").value;
+            var pass = document.getElementById("contraseña").value;
+
+            alert("Usuario ingresado:\n" + usuario + "\n" + pass);
+        }
+        function Limpiar() {
+            document.getElementById("usuario").value = "";
+            document.getElementById("contraseña").value = "";
+        }
     </script>
 </head>
-<body>
-        <fieldset>
-    <div class="container"> 
-        
-        <legend>Login</legend>   
-    <div class="col-md-30">     
-        <div class="input-group">
-       
-        <!-- ctrl + k + d alinear codigo -->
-        <img src="https://myonlineaccount.affinitywater.co.uk/Content/Images/glyphicon/login-icon@3x.png" alt="">
-        <input type="text" class="form-control" id="usuario" placeholder="Usuario"> 
-        <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" maxlength="5">   
-    </div>
-      
-        <div class="checkbox">
-            <label>
-                <!-- label=anidarlo -->
-            <b><input type="checkbox" checked>Recordar usar y contraseña</b>
-            </label>
-        </div>
 
-        <button class="btn btn-success" name="btnAceptar" onclick="Mostrar()">Aceptar</button>
-        <button class="btn btn-info" name="btnLimpiar" onclick="Limpiar()">Limpiar</button>
-        <br>
-        
-      
-    </div>         
-    </div> 
-</fieldset> 
+<body>
+    <fieldset>
+        <div class="container">
+
+            <legend>Login</legend>
+            <div class="col-md-30">
+                <div class="input-group">
+
+                    <!-- alt + shift + f alinear codigo -->
+                    <img src="https://myonlineaccount.affinitywater.co.uk/Content/Images/glyphicon/login-icon@3x.png" alt="">
+                    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" maxlength="5">
+                </div>
+
+                <div class="checkbox">
+                    <label>
+                        <!-- label=anidarlo -->
+                        <b><input type="checkbox" checked>Recordar usar y contraseña</b>
+                    </label>
+                </div>
+
+                <button class="btn btn-success" name="btnAceptar" onclick="Mostrar()">Aceptar</button>
+                <button class="btn btn-info" name="btnLimpiar" onclick="Limpiar()">Limpiar</button>
+                <br>
+
+
+            </div>
+        </div>
+    </fieldset>
 </body>
+
 </html>
