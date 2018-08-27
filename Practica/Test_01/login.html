@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="website keywords, website keywords" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css\style.css">
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="TS/app.js"></script>
+  
+</head>
+<body style="background-image:url(http://www.cablelink.com.ph/assets/img/background%20login.jpg)" >
+    
+    <div class="login-page">
+    <div class="form">
+        <!-- FORMULARIO PARA INGRESO-->
+    <form id="formCARGA">
+    
+        <img src="https://myslu.slu.edu/res/images/cas-padlock-icon.png" width="200px" height="200px">
+        <br><br>
+        <!-- USUARIO -->
+        
+        <input type="text" class="sinError form-control" autocomplete="on" autofocus placeholder="Usuario" id="txtUsuario">
+        <!-- CONTRASEÑA -->
+        <input type="password" class="sinError form-control" autofocus placeholder="Contraseña" id="txtContra">
+    
+        <!-- <input type="checkbox" checked>Recordar usar y contraseña -->
+       
+        <button class="btn btn-info" onclick="home()">login</button>
+      <p class="message">No estas registrado? <a href="indexRegistrarse.html">Crear una cuenta</a></p>
+    </div>
+    
+    </form>
+    </div>
+    
+</body>
+</html>
