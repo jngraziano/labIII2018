@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clase02</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <script>
+     function Mostraralert() {
+         alert("Otra vez esta mierda");
+        
+    }
+    function muestraUSPAS() {
+        var us = document.getElementById("txtUsuario").value;
+        var ps = document.getElementById("txtContraseña").value;
+
+        alert("Usuario ingresado: "+us+"\n"+"Contraseña: "+ ps);       
+    }
+    </script>
+</head>
+<body>
+
+    <!-- en action ponemos la web donde se aloja el servidor -->
+    <!-- <form action="" method="POST" target="_blank"> -->
+    <form action="" method="POST" >
+        <fieldset>
+        <legend>Login</legend>
+        <label for="txtUsuario">Usuario:</label>
+        <input type="text" name="usuario" placeholder="Ingrese usuario" id="txtUsuario" required>
+        <br>
+        <label for="txtContraseña">Contraseña: </label>
+        <input type="password" name="contraseña" placeholder="Ingrese contraseña" id="txtContraseña" required>
+        <br><br>
+        <button onclick="muestraUSPAS()">Ingrese</button> 
+    </fieldset>
+        <br><br>
+        <label for="">Checkbox: </label>
+        <input type="checkbox" name="" id="tecnologia" value="tecnologia">Tecno
+        <input type="checkbox" name="" id="cine" value="cine" value="cine">Cine
+
+        <br><br>
+        <!-- se puede repetir el nombre pero no su id -->
+        <label for="">Radio</label>
+        <input type="radio" name="sexo" id="">Mujer
+        <input type="radio" name="sexo" id="">Hombre
+        <input type="radio" name="sexo" id="">Todes
+        <br><br>
+        
+        <label for="tipoDOC">Select/Option:</label>
+        <!-- <select name="tipoDOC" id="tipoDOC"> -->
+        <!-- <select name="tipoDOC" id="tipoDOC" multiple size="2"> -->
+        <select name="tipoDOC" id="tipoDOC">
+            <option value="dni">DNI</option>
+            <option value="pasaporte">Pasaporte</option>
+            <option value="cedula">Cedula</option>
+            <option value="otro"selected>Otro</option>
+
+        </select>
+        <br><br>
+        <label for="">Input submit que manda al form:</label>
+        <!-- me va a mandar los controles todo a donde yo puse en el form principal -->
+        <input type="submit" name="submit" id="inputsubnmit" value="Enviar form">
+        <br><br>
+        <label for="">Input reset que limpia:</label>
+        <input type="reset" value="Resetear valores">
+     
+
+        <br><br>
+        <fieldset>
+            <legend>
+                Groupbox (fieldset)
+            </legend>
+            <label for="">Boton con script: </label>
+            <button onclick="Mostraralert()">Alert</button> 
+
+        </fieldset>
+       
+
+
+
+    </form>
+    
+</body>
+</html>
