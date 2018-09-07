@@ -1,0 +1,17 @@
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+  }
+thead{
+    background-color: green;
+    color: white;
+}
+
+#cargaID{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: lightgrey; 
+    text-align: center;
+}

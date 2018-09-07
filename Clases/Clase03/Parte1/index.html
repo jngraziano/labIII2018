@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clase03</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+
+    <script src="js/funciones.js"></script>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+     <!-- LINEA DE JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+ 
+</head>
+<body>
+
+    <!-- Carga N&A -->
+    <div class="container">
+        <!-- FORM RECARGA LA PAGINA ESA ES LA DIFERENCIA Y POR ESO NO MOSTRABA -->
+        <!-- <form action="" id="formCARGA"> -->
+            <div class="row" id="cargaID">
+                <div class="form-group">
+                <label for=""> Nombre</label><br>
+                <input type="text" placeholder="Tu nombre..." id="txtNombre" required>
+                </div>
+                <div class="form-group">
+                <label for="">Apellido</label><br>
+                <input type="text" placeholder="Tu apellido..." id="txtApellido" required>
+                </div>
+                <br>
+                <button class="btn btn-success" onclick="btnGuardar()">Guardar</button>
+            </div>
+        <!-- </form> -->
+   
+        <section id="listado" class="container" > 
+          <h2>Lista de personas</h2>
+          <!-- <div class="table-responsive" class="container"> -->
+                <table class="table" id="tabla">
+                        <!-- CABECERA -->
+                        <thead id="tCabecera">
+                            <th scope="col" id="cNombre">Nombre</th>
+                            <th scope="col" id="cApellido">Apellido</th>
+                            <th scope="col" id="cBoton">Boton</th>
+                        </thead>
+                        <!-- CUERPO -->
+                        <tbody id="tCuerpo">
+                        </tbody>
+                        <!-- <tbody id="tCuerpoAUX" style='visibility:hidden'>
+                        </tbody>
+                        <tbody id="tCuerpoTXT" style='visibility:hidden'>
+                        </tbody>     -->
+                    </table>
+        </section>
+          
+    </div>
+
+
+</body>
+</html>

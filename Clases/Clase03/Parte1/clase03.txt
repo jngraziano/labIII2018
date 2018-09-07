@@ -1,0 +1,7 @@
+Vimos un repaso general. 
+
+Calculadora clase pasada
+ -Suma
+ -Resta
+ -Division
+ -Multiplicacion
