@@ -9,9 +9,25 @@ thead{
 }
 
 #cargaID{
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    background-color: lightgrey; 
+  
+    width: 500px;
+    margin: auto;
+   
     text-align: center;
+    padding: 50px;
+    background-color: lightgrey; 
+    -webkit-box-sizing: border-box;
+    
 }
+
+/*
+    Vimos tambien:
+    position: relative;
+    position: absolute; Tiene que ser dentro de otro div relative
+    div anclado:
+    position: fixed;
+    bottom:0;
+    right 0;
+
+    si uso porcentajes en vez de pixeles es relativo a lo que esta conteniendo por eso es mejor
+    */
