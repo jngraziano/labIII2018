@@ -42,9 +42,34 @@
 
         <!-- BUTTON -->
             <button class="btn btn-success btn-lg" onclick="btnResultado()">Resultado</button>
+            <button class="btn btn-info btn-lg" onclick="btnHistorial()">Historial</button>
             <button class="btn btn-warning btn-block" onClick="window.location.reload()" id="btnF5">F5</button>
         </div>
+        <div id="tablaHistorica" hidden>
+            <section id="listado" class="container" > 
+            <button class="btn btn-danger" onclick="btnCerrar()"id="btnCerrar">X</button>
+                <h2>Historial</h2>
+                
+                <!-- <div class="table-responsive" class="container"> -->
+                      <table class="table" id="tabla">
+                              <!-- CABECERA -->
+                              <thead id="tCabecera">
+                                  <th scope="col" id="cNum1">Numero1</th>
+                                  <!-- <th scope="col" id="cOP">Operador</th> -->
+                                  <th scope="col" id="cNum2">Numero2</th>
+                                  <th scope="col" id="cResult">Resultado</th>
+                              </thead>
+                              <!-- CUERPO -->
+                              <tbody id="tCuerpo">
+                              </tbody>
+                              <!-- <tbody id="tCuerpoAUX" style='visibility:hidden'>
+                              </tbody>
+                              <tbody id="tCuerpoTXT" style='visibility:hidden'>
+                              </tbody>     -->
+                          </table>
+              </section>
 
+        </div>
         <br>
         <label for="" id="txtResultado"></label>
     </div> 

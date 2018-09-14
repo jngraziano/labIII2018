@@ -25,6 +25,7 @@ img{
 #txtNum1,#txtNum2,#tipoOperador{
     border-radius: 25px;
     font-size: 20px;
+    text-align: center;
     
 }
 
@@ -51,3 +52,18 @@ input[type=number]:focus{
     border-radius: 4px;
  
   }
+
+#tablaHistorica{
+    position: fixed;
+    bottom:50%;
+    right:5%;
+    text-align: center;
+    background-color: grey;
+    border: 2px solid;
+    border-radius: 25px;
+}
+#btnCerrar{
+    position:absolute; 
+    right:-15px; 
+    top:-40px; 
+}
