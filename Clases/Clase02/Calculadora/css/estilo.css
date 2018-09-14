@@ -2,7 +2,9 @@ html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
-        background-color: aqua;
+        background-color: lightgrey;
+        font-style: oblique;
+        
   }
 img{
     width: 20%;
@@ -20,6 +22,32 @@ img{
 
 }
 
-#txtResultado{
+#txtNum1,#txtNum2,#tipoOperador{
+    border-radius: 25px;
+    font-size: 20px;
     
 }
+
+.error{
+  border-color: red;
+  border-radius: 25px;
+}
+
+.exito{
+    border-color: green;
+    border-radius: 25px;
+}
+
+#btnF5{
+    position: fixed;
+    bottom:0;
+    right: 0;
+
+}
+
+input[type=number]:focus{
+    /* outline: 2px solid orange; */
+    border: 2px solid skyblue;
+    border-radius: 4px;
+ 
+  }

@@ -7,9 +7,12 @@ function btnResultado() {
 
     if (num1 == "" || num2 == "") {
         labelResult.innerHTML="Debe completar los campos.";
-        
+        document.getElementById("txtNum1").className="error";
+        document.getElementById("txtNum2").className="error";
     }
     else{
+        document.getElementById("txtNum1").className="exito";
+        document.getElementById("txtNum2").className="exito";
         var opciones = document.getElementById("tipoOperador");
         if (opciones.selectedIndex == null) {
             opciones.selectedIndex = 0;
@@ -51,5 +54,6 @@ function btnResultado() {
 function info() {
 
     alert("Calculadora\n"+"Alumno: Julian Graziano"+"\n"+"Division: 3 D");
+    
     
 }
