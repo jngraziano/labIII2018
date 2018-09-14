@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculadora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+   
+    <script src="js/funciones.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css\estilo.css">
+
+       <!-- LINEA DE JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
+</head>
+<body>
+    <div class="container" id="divCalc">
+        <!-- IMAGEN -->
+        <br>
+        <img src="http://is3.mzstatic.com/image/pf/us/r30/Purple1/v4/f5/2e/07/f52e07a3-926a-3062-9001-e21be3392514/mzl.clfzjdcv.jpg" alt="" onclick="info()">
+        <br><br>
+
+        <div class="form-group">
+        <!-- INPUT / SELECT-OPTION -->
+
+        <!-- INPUT 1 -->
+            <input type="number" id="txtNum1" placeholder="Ingrese un numero">
+
+        <!-- SELECT -->
+            <select name="tipoOperador" id="tipoOperador">
+                <option value="+"selected>+</option>
+                <option value="-">-</option>
+                <option value="/">/</option>
+                <option value="*">*</option>
+            </select>  
+
+        <!-- INPUT 2 -->   
+            <input type="number" id="txtNum2" placeholder="Ingrese otro numero">
+            <br><br>
+
+        <!-- BUTTON -->
+            <button class="btn btn-success" onclick="btnResultado()">Resultado</button>
+        </div>
+
+        <br>
+        <label for="" id="txtResultado"></label>
+    </div> 
+   
+</body>
+</html>
