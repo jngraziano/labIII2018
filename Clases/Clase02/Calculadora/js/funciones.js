@@ -15,7 +15,7 @@ function btnResultado(num1,num2) {
         
 }
 
-function info() {
+function miInfo() {
 
     alert("Calculadora\n"+"Alumno: Julian Graziano"+"\n"+"Division: 3 D");
     
@@ -35,35 +35,73 @@ function validaNUM(num1,num2) {
         return true;
     }
     
+
 }
+
+window.onload=function () {
+    // JSON
+    // var cuenta1 = {"numb1":2,"numb2":4,"resultado":8};
+    // var cuenta2 = {"numb1":4,"numb2":10,"resultado":40};
+
+    // var listaCuentas = [cuenta1,cuenta2];
+
+    // alert(cuenta1.numb1);
+    // alert(listaCuentas[1].resultado);
+
+    // for (var i = 0; i < listaCuentas.length; i++) {
+    //    alert(listaCuentas[i].numb1);
+        
+    // }
+
+    
+}
+
+
+var cuenta1 = {"numb1":2,"numb2":4,"resultado":8};
+var cuenta2 = {"numb1":4,"numb2":10,"resultado":40};
+var listaCuentas = [cuenta1,cuenta2];
 
 function btnHistorial() {
 
     var divTabla = document.getElementById("tablaHistorica");
 
+    // hay que hacer un historial con elementos hardcodeados desde el array
+    // listaCuentas.push() para agregar otro elemento
+    // listaCuentas.splice(0,1) para borrar, elijo la posicion y despues cuantos elementos (en este caso borra cuenta1) 
+    //hay que hacer que borre, y tambien hacer un boton agregar que haga un push al array de json con el nuevo json formado
+    //usar variables globales.
+
+    divTabla.hidden = false;
+    
+    var cuerpo = document.getElementById("tCuerpo");
+    
+   
+    for (var i = 0; i < listaCuentas.length; i++) {
+        cuerpo.innerHTML+="<tr><td scope='row'>"+ listaCuentas[i].numb1 + "</td>"+
+                          "<td scope='row'>"+ listaCuentas[i].numb2 + "</td>"+
+                          "<td scope='row'>"+ listaCuentas[i].resultado + "</td></tr>"; 
+    }
+    
 
     // EN VEZ DE LEVANTAR DESDE EL HTML, HACERLO DESDE UN localStorage O LO QUE SEA
-    var num1 = document.getElementById("txtNum1").value;
-    var num2 = document.getElementById("txtNum2").value;
+    //AHORA EL BOTON HISTORIAL HACE TODO
+    // var num1 = document.getElementById("txtNum1").value;
+    // var num2 = document.getElementById("txtNum2").value;
     
-    var result = btnResultado(num1,num2);
+    // var result = btnResultado(num1,num2);
 
-        divTabla.hidden = false;
+    //     divTabla.hidden = false;
 
-        var cuerpo = document.getElementById("tCuerpo");
+    //     var cuerpo = document.getElementById("tCuerpo");
    
-        cuerpo.innerHTML+="<tr>"+"<td scope='row'>"+ num1 + "</td>"+
-                        //    "<td scope='row'>"+ num2 + "</td>"+
-                           "<td scope='row'>"+ num2 + "</td>"+
-                           "<td scope='row'>"+ result + "</td>"
-                           +"</tr>"; 
+    //     cuerpo.innerHTML+="<tr>"+"<td scope='row'>"+ num1 + "</td>"+
+    //                     //    "<td scope='row'>"+ num2 + "</td>"+
+    //                        "<td scope='row'>"+ num2 + "</td>"+
+    //                        "<td scope='row'>"+ result + "</td>"
+    //                        +"</tr>"; 
 
 
-    // fecha parcial en tres semanas 14/09
-    // clase que viene ajax
-    // clase otra jquery
-    // la otra clase parcial
-    // parcial 12 de octubre
+    
 
     
     
