@@ -1,8 +1,11 @@
+
+
 function btnResultado(num1,num2) {
+
     var num1 = document.getElementById("txtNum1").value;
     var num2 = document.getElementById("txtNum2").value;
     var result;  
-
+    var numeros = new numeros();
     var opera = document.getElementById("tipoOperador");
     var operador = opera.selectedIndex;
         

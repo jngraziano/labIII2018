@@ -5,14 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Calculadora</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
    
-    <script src="js/funciones.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- SCRIPS -->
+    <!-- <script src="js/funciones.js"></script> -->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="Clases/app.js"></script>
+    <script src="Clases/numeros.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="css\estilo.css">
 
-       <!-- LINEA DE JQUERY -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <!-- LINEA DE BOOSTRAP/JQUERY -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 
 </head>
 <body>
@@ -30,10 +36,10 @@
 
         <!-- SELECT -->
             <select name="tipoOperador" id="tipoOperador">
-                <option value="+"selected>+</option>
-                <option value="-">-</option>
-                <option value="/">/</option>
-                <option value="*">*</option>
+                <option value=0 selected>+</option>
+                <option value=1>-</option>
+                <option value=2>/</option>
+                <option value=3>*</option>
             </select>  
 
         <!-- INPUT 2 -->   
@@ -41,8 +47,12 @@
             <br><br>
 
         <!-- BUTTON -->
-            <button class="btn btn-success btn-lg" onclick="btnResultado()">Resultado</button>
-            <button class="btn btn-info btn-lg" onclick="btnHistorial()">Historial</button>
+            <button class="btn btn-success btn-lg" id="btnResultado" onclick="btnResultado()">Resultado
+                <i class="glyphicon glyphicon-plus"></i>
+            </button>
+            <button class="btn btn-info btn-lg" id="btnHistorial" type="button" onclick="btnHisto()">Historial
+                <i class="glyphicon glyphicon-modal-window"></i>
+            </button>
             <button class="btn btn-warning btn-block" onClick="window.location.reload()" id="btnF5">F5</button>
         </div>
         <div id="tablaHistorica" hidden>
@@ -57,6 +67,7 @@
                                   <th scope="col" id="cNum1">Numero1</th>
                                   <!-- <th scope="col" id="cOP">Operador</th> -->
                                   <th scope="col" id="cNum2">Numero2</th>
+                                  <th scope="col" id="cNum2">Operador</th>
                                   <th scope="col" id="cResult">Resultado</th>
                               </thead>
                               <!-- CUERPO -->
