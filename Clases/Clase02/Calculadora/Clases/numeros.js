@@ -1,3 +1,4 @@
+"use strict";
 var Clases;
 (function (Clases) {
     var Operaciones = /** @class */ (function () {
@@ -51,15 +52,15 @@ var Clases;
             var flag = 0;
             if (flag == 0) {
                 switch (op) {
-                    case 0:
+                    case "0":
                         result = (+num1 + +num2);
                         this.op = "+";
                         break;
-                    case 1:
+                    case "1":
                         result = num1 - num2;
                         this.op = "-";
                         break;
-                    case 2:
+                    case "2":
                         if (num2 == 0) {
                             flag = 1;
                             break;
@@ -69,7 +70,7 @@ var Clases;
                             this.op = "/";
                         }
                         break;
-                    case 3:
+                    case "3":
                         result = num1 * num2;
                         this.op = "*";
                         break;

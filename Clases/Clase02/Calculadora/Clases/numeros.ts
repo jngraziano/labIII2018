@@ -32,7 +32,7 @@ namespace Clases {
         //     this.op = v;
         // }
 
-        constructor(numero1:number,numero2:number,ope:number) {
+        constructor(numero1:number,numero2:number,ope:any) {
 
             if (this.validaNUM(numero1,numero2)) {
                 this.num1=numero1;
@@ -58,7 +58,7 @@ namespace Clases {
         /**
          * Operacion
             num1,num2,op         */
-        public Operacion(num1:number,num2:number,op:number):number {
+        public Operacion(num1:number,num2:number,op:any):number {
 
         let result:number = 0;
         let flag:number = 0;
@@ -67,15 +67,15 @@ namespace Clases {
             
           
             switch (op) {
-                case 0:
+                case "0":
                     result=(+num1+ +num2);
                     this.op="+";
                     break;
-                case 1:
+                case "1":
                     result=num1-num2;
                     this.op="-";
                     break;
-                case 2:
+                case "2":
                     if (num2 == 0) {
                         flag=1;
                         break;     
@@ -85,7 +85,7 @@ namespace Clases {
                         this.op="/";
                     }
                     break;
-                case 3:
+                case "3":
                     result=num1*num2;
                     this.op="*";
                     break;    

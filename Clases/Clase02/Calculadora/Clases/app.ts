@@ -1,5 +1,9 @@
 /// <reference path="../node_modules/@types/jquery/index.d.ts" />
 
+      
+        var arrayOperaciones:Clases.Operaciones[];
+        let flag: number=0;
+
         function manejadorEventos() {
 
             // let btnHistorial = document.getElementById("btnHistorial");
@@ -8,32 +12,43 @@
             
         }
 
+        window.onload = () => {
+            arrayOperaciones = [];
+        };
+
         // BOTONES
 
         function btnHisto() 
         {
-            let unaOpe = new Clases.Operaciones(2,4,0);
-            let dosOpe = new Clases.Operaciones(10,5,2);
+            var num1 = document.getElementById("txtNum1").value;
+            var num2 = document.getElementById("txtNum2").value;
+
+         
+            //HARDCODEADO:
+            // var listaCuentas = [unaOpe,dosOpe];
+            // let unaOpe = new Clases.Operaciones(2,4,0);
+            // let dosOpe = new Clases.Operaciones(10,5,2);
     
             var divTabla = document.getElementById("tablaHistorica");
             var cuerpo = document.getElementById("tCuerpo");
-            var listaCuentas = [unaOpe,dosOpe];
+            
             
             // alert(unaOpe.num1+unaOpe.num2+unaOpe.op+unaOpe.resultado);
             if(divTabla.hidden != null)
             {
                 divTabla.hidden= false;
-
-                for (var i = 0; i < listaCuentas.length; i++) {
-                    cuerpo.innerHTML+="<tr><td scope='row'>"+ listaCuentas[i].num1 + "</td>"+
-                                    "<td scope='row'>"+ listaCuentas[i].num2 + "</td>"+
-                                    "<td scope='row'>"+ listaCuentas[i].op + "</td>"+
-                                    "<td scope='row'>"+ listaCuentas[i].resultado + "</td></tr>"; 
+                cuerpo.innerHTML= null;
+                for (var i = 0; i < arrayOperaciones.length; i++) {
+                    cuerpo.innerHTML+="<tr><td scope='row'>"+ arrayOperaciones[i].num1 + "</td>"+
+                                    "<td scope='row'>"+ arrayOperaciones[i].num2 + "</td>"+
+                                    "<td scope='row'>"+ arrayOperaciones[i].op + "</td>"+
+                                    "<td scope='row'>"+ arrayOperaciones[i].resultado + "</td></tr>"; 
                     }
             } 
     
             
         }
+
 
         function btnCerrar() {
             var divTabla = document.getElementById("tablaHistorica");
@@ -43,25 +58,32 @@
         }
 
         function btnResultado() {
-
+    
+            //TOMO NUM1 y NUM2 de los input del HTML
             var num1 =   Number($('#txtNum1').val());
-
             var num2 =   Number($('#txtNum2').val());
-            var opera =  Number($('#tipoMasc').val());
+            
 
-            var result;  
-            var unaOperacion = new Clases.Operaciones(num1,num2,opera);
-                
-          
-            result=unaOperacion.resultado;
-        
-            // document.getElementById("txtNum1")=null;
-            // document.getElementById("txtNum2")=null;
+            //TOMO el numero elegido en el select 
+            let opera: HTMLSelectElement = <HTMLSelectElement>document.getElementById("tipoOperador").value;
+            //Tomo el label del html
             let txtResult = $("#txtResultado");
+            //CREO UN OBJETO DE TIPO OPERACIONES y le paso las variables.
+            let unaOperacion : Clases.Operaciones = new Clases.Operaciones(num1,num2,opera);
+            
+            // this.arrayOperaciones.push(unaOperacion);
+            arrayOperaciones.push(unaOperacion);            
 
-            txtResult.append("El resultado es: "+result);
+            //Primero limpio el label y luego reemplazo por el texto.
+            txtResult.empty().append("El resultado de "+unaOperacion.num1+unaOperacion.op+unaOperacion.num2+" es: "+unaOperacion.resultado);
+            flag=1;
+                           
 
-            return result;
-                
+        }
 
+        function miInfo() {
+
+            alert("Calculadora\n"+"Alumno: Julian Graziano"+"\n"+"Division: 3 D");
+            
+            
         }
