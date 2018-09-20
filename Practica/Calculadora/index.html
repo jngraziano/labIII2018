@@ -32,7 +32,7 @@
         <!-- INPUT / SELECT-OPTION -->
 
         <!-- INPUT 1 -->
-            <input type="number" id="txtNum1" placeholder="Ingrese un numero">
+            <input type="number" id="txtNum1" placeholder="Ingrese un numero" >
 
         <!-- SELECT -->
             <select name="tipoOperador" id="tipoOperador">
@@ -43,7 +43,7 @@
             </select>  
 
         <!-- INPUT 2 -->   
-            <input type="number" id="txtNum2" placeholder="Ingrese otro numero">
+            <input type="number" id="txtNum2" placeholder="Ingrese otro numero" >
             <br><br>
 
         <!-- BUTTON -->
@@ -58,10 +58,11 @@
         <div id="tablaHistorica" hidden>
             <section id="listado" class="container" > 
             <button class="btn btn-danger" onclick="btnCerrar()"id="btnCerrar">X</button>
+            <div class="text-center">
                 <h2>Historial</h2>
                 
                 <!-- <div class="table-responsive" class="container"> -->
-                      <table class="table" id="tabla">
+                      <table class="table  table-bordered" id="tabla">
                               <!-- CABECERA -->
                               <thead id="tCabecera">
                                   <th scope="col" id="cNum1">Numero1</th>
@@ -81,9 +82,11 @@
               </section>
 
         </div>
+            
         <br>
         <label for="" id="txtResultado"></label>
     </div> 
+</div>
    
 </body>
 </html>

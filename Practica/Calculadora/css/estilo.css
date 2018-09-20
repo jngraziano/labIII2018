@@ -56,7 +56,7 @@ input[type=number]:focus{
 #tablaHistorica{
     position: fixed;
     bottom:50%;
-    right:5%;
+    right:10%;
     text-align: center;
     background-color: grey;
     border: 2px solid;
@@ -66,4 +66,11 @@ input[type=number]:focus{
     position:absolute; 
     right:-15px; 
     top:-40px; 
+}
+
+#tCuerpo,#tabla{
+    text-align: center;
+}
+th{
+    text-align: center;
 }

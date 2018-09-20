@@ -20,10 +20,7 @@
 
         function btnHisto() 
         {
-            var num1 = document.getElementById("txtNum1").value;
-            var num2 = document.getElementById("txtNum2").value;
-
-         
+              
             //HARDCODEADO:
             // var listaCuentas = [unaOpe,dosOpe];
             // let unaOpe = new Clases.Operaciones(2,4,0);
@@ -32,8 +29,7 @@
             var divTabla = document.getElementById("tablaHistorica");
             var cuerpo = document.getElementById("tCuerpo");
             
-            
-            // alert(unaOpe.num1+unaOpe.num2+unaOpe.op+unaOpe.resultado);
+    
             if(divTabla.hidden != null)
             {
                 divTabla.hidden= false;
@@ -63,6 +59,10 @@
             var num1 =   Number($('#txtNum1').val());
             var num2 =   Number($('#txtNum2').val());
             
+            // if (num2 == 0) {
+            //     document.getElementById("txtNum1").className="error";
+            //     document.getElementById("txtNum2").className="error";
+            // }
 
             //TOMO el numero elegido en el select 
             let opera: HTMLSelectElement = <HTMLSelectElement>document.getElementById("tipoOperador").value;
@@ -70,13 +70,34 @@
             let txtResult = $("#txtResultado");
             //CREO UN OBJETO DE TIPO OPERACIONES y le paso las variables.
             let unaOperacion : Clases.Operaciones = new Clases.Operaciones(num1,num2,opera);
-            
-            // this.arrayOperaciones.push(unaOperacion);
-            arrayOperaciones.push(unaOperacion);            
 
-            //Primero limpio el label y luego reemplazo por el texto.
-            txtResult.empty().append("El resultado de "+unaOperacion.num1+unaOperacion.op+unaOperacion.num2+" es: "+unaOperacion.resultado);
-            flag=1;
+            if (num1 == 0 || num2 == 0 ) {
+
+                document.getElementById("txtNum1").className="error";
+                document.getElementById("txtNum2").className="error";
+                txtResult.empty().append("Debe completar los campos.");
+                
+            }
+            
+            else if (unaOperacion.flag == 2) {
+                document.getElementById("txtNum2").className="error";
+                txtResult.empty().append("Math error.");
+                
+            }
+           
+            else
+            {
+                // this.arrayOperaciones.push(unaOperacion);
+                document.getElementById("txtNum1").className="exito";
+                document.getElementById("txtNum2").className="exito";
+                arrayOperaciones.push(unaOperacion);            
+
+                //Primero limpio el label y luego reemplazo por el texto.
+                txtResult.empty().append("El resultado de "+unaOperacion.num1+unaOperacion.op+unaOperacion.num2+" es: "+unaOperacion.resultado);
+                flag=1;
+            }
+            
+            
                            
 
         }
