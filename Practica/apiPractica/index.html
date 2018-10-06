@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+
+    <!-- SCRIPTS -->
+    <script src="clases/app.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!-- LINEA DE BOOSTRAP/JQUERY -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Ultimas noticias</h2>
+        <!-- http://localhost:3000/nuevaNoticia pegarle con el post para cargar una nueva  -->
+           <!-- hacer un div invisible para agregar y editar una noticia -->
+           <!-- titulo
+                tema
+                Descripcion
+             -->
+           <!-- recordar que el tema es un desplegable y un text area para guardar la descripcion de la noticia. -->
+           <!-- hacer un boton que pregunte y elimine la noticia -->
+             <!-- addeventlistener te deja agregar eventos -->
+
+                <div>
+                        <h3 id="titulo1"></h3>
+                        <p id="noticia1"></p>
+                        <button class="btn btn-info" id="btnResultado" onclick="btnResultado()">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" id="btnResultado" onclick="btnResultado()">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </button>
+                       
+                        <h3 id="titulo2"></h3>
+                        <p id="noticia2"></p>
+                        <button class="btn btn-info" id="btnResultado" onclick="btnResultado()">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" id="btnResultado" onclick="btnResultado()">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </button>   
+                </div>
+
+                <button class="btn btn-success btn-block" onClick="edicionClick()" id="btnEdicion">Agregar</button>
+
+
+                <div id="add-edit" hidden>
+                   
+                    <button class="btn btn-danger" onclick="btnCerrar()"id="btnCerrar">X</button>
+                    <div class="text-center">
+                    <!-- INPUT TITULO -->
+                    <input type="text" id="tituloE" placeholder="Ingrese Titulo...">
+                    <br>
+                    <!-- SELECT TEMA-->
+                    <select name="tipoTema" id="tipoTema">
+                        <option value=0 selected>Deportes</option>
+                        <option value=1>Economia</option>
+                        <option value=2>Ciencia</option>
+                    
+                     </select>  
+                     <br>
+                     <!-- TEXTAREA DESCRIPCION-->
+                     <textarea id="descripcionE" cols="20" rows="5" placeholder="Ingrese descipción de la noticia..."></textarea>
+                    <button class="btn btn-success btn-block" onclick="btnAgregar()">Confirmar</button>
+                    </div>
+                </div>
+
+    </div>
+</body>
+</html>
+<!-- 
+    iniciar servidor
+node index.js -->

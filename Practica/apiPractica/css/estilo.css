@@ -1,0 +1,18 @@
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        /* background-color: lightgrey; */
+        font-style: oblique;
+        
+  }
+
+  #add-edit{
+    position: fixed;
+    bottom:50%;
+    right:10%;
+    text-align: center;
+    background-color: grey;
+    border: 2px solid;
+    border-radius: 25px;
+  }
