@@ -1,4 +1,5 @@
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // /// <reference path="../node_modules/@types/jquery/index.d.ts" />
 // import { Noticias } from "./noticia";
 /*PARCIAL
