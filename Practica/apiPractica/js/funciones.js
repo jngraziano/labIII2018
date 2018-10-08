@@ -21,15 +21,31 @@ function callBackGET() {
             // document.getElementById("textoLabel").innerHTML = xml.responseText;
             // puedo pasar el texto a un JSON para poder acceder 
             var noticias = JSON.parse(xml.responseText);
-            // for (var i = 0; i < noticias.length; i++) {
-            console.log(noticias);
-            document.getElementById("titulo1").innerHTML = noticias[0].titulo;
-            document.getElementById("noticia1").innerHTML = noticias[0].noticia;
-            document.getElementById("titulo2").innerHTML = noticias[1].titulo;
-            document.getElementById("noticia2").innerHTML = noticias[1].noticia;
-            document.getElementById("titulo3").innerHTML = noticias[2].titulo;
-            document.getElementById("noticia3").innerHTML = noticias[2].noticia;
-            // }
+            var cuerpo = document.getElementById('tCuerpo');
+            var seccionNoticias ="";
+
+             for (var i = 0; i < noticias.length; i++) {
+            
+
+             seccionNoticias+=    "<tr><td><p id='temaNoti'><small>"+noticias[i].tema+"</small></p>" +
+                                  "<h3 id='tituloNoti'>"+noticias[i].titulo  + "</h3>"+
+                                  "<p id='noticiaNoti'>"+noticias[i].noticia + "</p>" +
+                                  "<button class='btn btn-info' id='btnResultado' onclick='btnResultado()'>" +
+                                  "<i class='glyphicon glyphicon-edit'></i></button>" +
+                                  "<button class='btn btn-danger' id='btnResultado' onclick='btnResultado()'>" +
+                                  "<i class='glyphicon glyphicon-remove'></i></button></td></tr>";
+
+            cuerpo.innerHTML = seccionNoticias;
+                
+
+            // document.getElementById("titulo1").innerHTML = noticias[0].titulo;
+            // document.getElementById("noticia1").innerHTML = noticias[0].noticia;
+            // document.getElementById("titulo2").innerHTML = noticias[1].titulo;
+            // document.getElementById("noticia2").innerHTML = noticias[1].noticia;
+            // document.getElementById("titulo3").innerHTML = noticias[2].titulo;
+            // document.getElementById("noticia3").innerHTML = noticias[2].noticia;
+             }
+             console.log(noticias);
         }
     }
 }
@@ -50,7 +66,22 @@ function btnAgregar() {
     xml.setRequestHeader('Content-Type','application/json');
 
     var titulo = document.getElementById("tituloE").value;
-    var tema = document.getElementById("tipoTema").value;
+    var temaNum = document.getElementById("tipoTema").value;
+    var tema = "";
+    switch (temaNum) {
+        case "0":
+        tema="Deportes";
+        break;
+        case "1":
+        tema="Economia";
+        break;
+        case "2":
+        tema="Ciencia";
+        break;
+        default:
+            break;
+    }
+
     var descripcion = document.getElementById("descripcionE").value;
     var email ="add@add.com";
 
@@ -64,7 +95,9 @@ function callBackPOST() {
     if (xml.readyState == 4) {
         //verifico que tenga una respuesta correcta. 
         if (xml.status == 200) {
-            alert("Usuario cargado-");
+            alert("Usuario cargado");
+            location.reload();
+
         }
     }
 }
