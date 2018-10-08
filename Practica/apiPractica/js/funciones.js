@@ -26,7 +26,6 @@ function callBackGET() {
 
              for (var i = 0; i < noticias.length; i++) {
             
-
              seccionNoticias+=    "<tr><td><p id='temaNoti'><small>"+noticias[i].tema+"</small></p>" +
                                   "<h3 id='tituloNoti'>"+noticias[i].titulo  + "</h3>"+
                                   "<p id='noticiaNoti'>"+noticias[i].noticia + "</p>" +
@@ -68,6 +67,7 @@ function btnAgregar() {
     var titulo = document.getElementById("tituloE").value;
     var temaNum = document.getElementById("tipoTema").value;
     var tema = "";
+    
     switch (temaNum) {
         case "0":
         tema="Deportes";

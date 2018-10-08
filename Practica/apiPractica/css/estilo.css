@@ -2,12 +2,13 @@ html {
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
-        /* background-color: lightgrey; */
         font-style: oblique;
         
   }
 
   #add-edit{
+    transition-delay: 1s; /* delays for 1 second */
+    -webkit-transition-delay: 1s; /* for Safari & Chrome */
     position: fixed;
     bottom:35%;
     right:40%;
@@ -19,7 +20,6 @@ html {
 
   #btnCerrar{
     float: right;
-    /* position:absolute;  */
     right:-15px; 
     top:-40px; 
     
@@ -29,4 +29,8 @@ html {
   #btnConfirmar{
   text-align: center;
   
+  }
+  #btnEdicion{
+    background-color: darkblue;
+
   }
