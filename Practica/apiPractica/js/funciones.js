@@ -31,7 +31,7 @@ function callBackGET() {
                                   "<h3 id='tituloNoti'>"+noticias[i].titulo  + "</h3>"+
                                   "<p id='noticiaNoti'>"+noticias[i].noticia + "</p>" +
                                   "<button class='btn btn-info' id='btnResultado' onclick='btnResultado()'>" +
-                                  "<i class='glyphicon glyphicon-edit'></i></button>" +
+                                  "<i class='glyphicon glyphicon-pencil'></i></button>" +
                                   "<button class='btn btn-danger' id='btnResultado' onclick='btnResultado()'>" +
                                   "<i class='glyphicon glyphicon-remove'></i></button></td></tr>";
 
