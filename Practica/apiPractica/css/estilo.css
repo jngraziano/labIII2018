@@ -7,8 +7,7 @@ html {
   }
 
   #add-edit{
-    transition-delay: 1s; /* delays for 1 second */
-    -webkit-transition-delay: 1s; /* for Safari & Chrome */
+    
     position: fixed;
     bottom:35%;
     right:40%;
@@ -17,6 +16,10 @@ html {
     border: 2px solid;
     border-radius: 10px;
   }
+  /* @keyframes add-edit{
+    from{opacity: 0}
+    to{opacity: 1}
+} */
 
   #btnCerrar{
     float: right;
