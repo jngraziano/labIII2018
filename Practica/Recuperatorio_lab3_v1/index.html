@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recuperatorio</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+</head>
+
+<body id="tBody">
+
+    <h2>Lista de Personas</h2>
+
+    <hr>
+
+    <table id="miTabla">
+
+        <th >
+            <tr>
+                <td class="filaPrincipal">
+                    Nombre
+                </td>
+                <td class="filaPrincipal">
+                    Apellido
+                </td >
+                <td class="filaPrincipal">
+                    Fecha
+                </td>
+                <td class="filaPrincipal">
+                    Sexo
+                </td>
+            </tr>
+
+        </th>
+
+    </table>
+
+    <div class="popUp" id="popUp">
+
+        <label for="txtNombre">Nombre</label><br>
+        <input type="text" id="txtNombre"><br>
+
+        <label for="txtApellido">Apellido</label><br>
+        <input type="text" id="txtApellido"><br>
+
+        <label for="txtFecha">Fecha</label> <br>
+        <input type="text" id="txtFecha"><br>
+
+        <label for="txtSexo">Sexo:</label><br>
+        <input type="radio" name="sex" id="rdFem">Femenino<br>
+        <input type="radio" name="sex" id="rdMasc">Masculino<br>
+        <br>
+
+        <input type="button" value="Modificar" id="btnModificar">
+        <input type="button" value="Eliminar" id="btnEliminar">
+
+        <input type="button" value="X" id="btnClose" class="btnClose">
+
+    </div>
+
+    <div id="spinner" style="visibility:hidden">
+    <div class="lds-css ng-scope">
+        <div  class="lds-eclipse">
+            <div></div>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+
+</html>

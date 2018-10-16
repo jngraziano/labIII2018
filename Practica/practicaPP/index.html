@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+    <!-- JS -->
+    <script src="js/funciones.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Listado Personas</h2>
+
+        <div id="listadoPersonas" style="overflow-x:auto;">
+                <!-- class="table  table-bordered" -->
+            <table  id="tabla">
+                <thead>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>FECHA</th>
+                    <th>SEXO</th>
+                </thead>
+                <tbody id="tCuerpo">
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="divOculto" id="divOculto">
+                <!-- BUTTON X para ocultar el formulario -->
+               <button class="btnCerrar" id="btnCerrar">X</button>
+               <!-- <div class="text-center"> -->
+               <div>
+                   <!-- INPUT Nombre -->
+                   <br>
+                   <p id="Pnombre">Nombre:</p>
+                   <input type="text" id="nombreE" placeholder="Ingrese Nombre...">
+                   <br><br>
+                   <!-- INPUT Apellido -->
+                   <p id="Papellido">Apellido:</p>
+                   <input type="text" id="apellidoE" placeholder="Ingrese Apellido...">
+                   <br><br>
+                   <!-- INPUT Fecha -->
+                   <p id="Pfecha">Fecha (AAAA/MM/DD):</p>
+                   <input type="text" id="fechaE" placeholder="Ingrese fecha...">
+                   <br><br>
+                   
+                   <!-- SELECT SEXO-->
+                   <label for="txtSexo">Sexo:</label><br>
+                   <input type="radio" id="radFemenino">Femenino<br>
+                   <input type="radio" id="radMasculino">Masculino<br>
+               
+                   <br><br>
+                   
+                   <button class="" id="btnModificar">Modificar 
+                      
+                   </button>
+                   <button class="" id="btnEliminar">Eliminar 
+                      
+                    </button>
+               </div>
+        </div>
+
+        <div id="spinner" style="visibility:hidden"></div>
+              
+
+    </div>
+
+    
+
+</body>
+</html>
