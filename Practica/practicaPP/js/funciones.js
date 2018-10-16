@@ -96,6 +96,7 @@ function muestroDiv() {
 
 
     }
+   
 
     sexo.checked = true;
 
@@ -117,14 +118,22 @@ function modificarPersona() {
 
     var fechaEdit = document.getElementById("fechaE").value;
 
-    if (document.getElementById("radFemenino").checked) {
+    if (document.getElementById("radMasculino").checked && document.getElementById("radFemenino").checked ||
+    (document.getElementById("radMasculino").checked == false && document.getElementById("radFemenino").checked == false )
+    )
+    {
+
+        alert("Error, se debe seleccionar un sexo.");
+        flag=false;
+    } 
+    else if(document.getElementById("radFemenino").checked) {
 
         sexo = "Female";
+       
 
-    } else {
-
-        sexo = "Male";
-
+    }
+    else{
+        sexo = "Male"; 
     }
 
 
