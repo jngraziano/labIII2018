@@ -8,21 +8,20 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-
+  
     <!-- JS -->
-    <script src="js/funciones.js"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-    
+    <script src="js/funciones.js"></script>    
 
 </head>
 <body>
     
+    
     <div class="container">
         <h2>Listado Personas</h2>
+        <button id="btnAgregar">Agregar Persona</button>
 
-        <div id="listadoPersonas" style="overflow-x:auto;">
-                <!-- class="table  table-bordered" -->
+        <!-- TABLA COMPLETA -->
+        <div id="listadoPersonas"  style="overflow-x:auto;">
             <table  id="tabla">
                 <thead>
                     <th>NOMBRE</th>
@@ -33,44 +32,76 @@
                 <tbody id="tCuerpo">
 
                 </tbody>
-
             </table>
         </div>
+
+        <!-- DIV OCULTO 1 (MODIFICAR/ELIMINAR) -->
         <div class="divOculto" id="divOculto">
                 <!-- BUTTON X para ocultar el formulario -->
-               <button class="btnCerrar" id="btnCerrar">X</button>
-               <!-- <div class="text-center"> -->
-               <div>
-                   <!-- INPUT Nombre -->
-                   <br>
-                   <p id="Pnombre">Nombre:</p>
-                   <input type="text" id="nombreE" placeholder="Ingrese Nombre...">
-                   <br><br>
-                   <!-- INPUT Apellido -->
-                   <p id="Papellido">Apellido:</p>
-                   <input type="text" id="apellidoE" placeholder="Ingrese Apellido...">
-                   <br><br>
-                   <!-- INPUT Fecha -->
-                   <p id="Pfecha">Fecha (AAAA/MM/DD):</p>
-                   <input type="text" id="fechaE" placeholder="Ingrese fecha...">
-                   <br><br>
-                   
-                   <!-- SELECT SEXO-->
-                   <label for="txtSexo">Sexo:</label><br>
-                   <input type="checkbox" name="radFemenino" id="radFemenino">Femenino<br>
-                   <input type="checkbox" name="radMasculino" id="radMasculino">Masculino<br>
-               
-                   <br><br>
-                   
-                   <button class="" id="btnModificar">Modificar 
-                      
-                   </button>
-                   <button class="" id="btnEliminar">Eliminar 
-                      
-                    </button>
-               </div>
+            <button class="btnCerrar" id="btnCerrar">X</button>
+              
+            <div>
+                <!-- INPUT Nombre -->
+                <br>
+                <p>Nombre:</p>
+                <input type="text" id="nombreE" placeholder="Ingrese Nombre...">
+                <br><br>
+                <!-- INPUT Apellido -->
+                <p >Apellido:</p>
+                <input type="text" id="apellidoE" placeholder="Ingrese Apellido...">
+                <br><br>
+                <!-- INPUT Fecha -->
+                <p>Fecha (AAAA/MM/DD):</p>
+                <input type="text" id="fechaE" placeholder="Ingrese fecha...">
+                <br><br>
+                
+                <!-- SELECT SEXO-->
+                <label for="txtSexo">Sexo:</label><br>
+                <input type="checkbox" name="radFemenino" id="radFemenino">Femenino<br>
+                <input type="checkbox" name="radMasculino" id="radMasculino">Masculino<br>
+            
+                <br><br>
+                
+                <button class="" id="btnModificar">Modificar</button>
+                <button class="" id="btnEliminar">Eliminar</button>
+            </div>
         </div>
 
+        <!-- DIV OCULTO 2 (AGREGAR) -->
+        <div class="divOculto" id="divOculto2">
+            <!-- BUTTON X para ocultar el formulario -->
+           <button class="btnCerrar" id="btnCerrar">X</button>
+           <!-- <div class="text-center"> -->
+           <div>
+               <!-- INPUT Nombre -->
+               <br>
+               <p id="Pnombre">Nombre:</p>
+               <input type="text" id="nombreA" placeholder="Ingrese Nombre...">
+               <br><br>
+               <!-- INPUT Apellido -->
+               <p id="Papellido">Apellido:</p>
+               <input type="text" id="apellidoA" placeholder="Ingrese Apellido...">
+               <br><br>
+               <!-- INPUT Fecha -->
+               <p id="Pfecha">Fecha (AAAA/MM/DD):</p>
+               <input type="text" id="fechaA" placeholder="Ingrese fecha...">
+               <br><br>
+               
+               <!-- SELECT SEXO-->
+               <label for="txtSexo">Sexo:</label><br>
+               <input type="checkbox" name="radFemenino" id="radFemeninoA">Femenino<br>
+               <input type="checkbox" name="radMasculino" id="radMasculinoA">Masculino<br>
+           
+               <br><br>
+               
+               <button class="" id="btnAgregarConfirm">Agregar 
+                  
+               </button>
+              
+            </div>
+        </div>
+
+        <!-- SPINNER -->
         <div id="spinner" style="visibility:hidden"></div>
               
 
