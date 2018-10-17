@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="css/estilos.css" />
   
@@ -14,11 +13,11 @@
 
 </head>
 <body>
+        
     
-    
-    <div class="container">
+    <div id="divListado" class="container" style="visibility: hidden;">
         <h2>Listado Personas</h2>
-        <button id="btnAgregar">Agregar Persona</button>
+        <button class="botonAgregar" id="btnAgregar">Agregar Persona</button>
 
         <!-- TABLA COMPLETA -->
         <div id="listadoPersonas"  style="overflow-x:auto;">
@@ -44,15 +43,15 @@
                 <!-- INPUT Nombre -->
                 <br>
                 <p>Nombre:</p>
-                <input type="text" id="nombreE" placeholder="Ingrese Nombre...">
+                <input type="text" id="nombreE" placeholder="Ingrese Nombre..." style="text-align:center">
                 <br><br>
                 <!-- INPUT Apellido -->
                 <p >Apellido:</p>
-                <input type="text" id="apellidoE" placeholder="Ingrese Apellido...">
+                <input type="text" id="apellidoE" placeholder="Ingrese Apellido..."style="text-align:center">
                 <br><br>
                 <!-- INPUT Fecha -->
                 <p>Fecha (AAAA/MM/DD):</p>
-                <input type="text" id="fechaE" placeholder="Ingrese fecha...">
+                <input type="text" id="fechaE" placeholder="Ingrese fecha..."style="text-align:center">
                 <br><br>
                 
                 <!-- SELECT SEXO-->
@@ -62,29 +61,29 @@
             
                 <br><br>
                 
-                <button class="" id="btnModificar">Modificar</button>
-                <button class="" id="btnEliminar">Eliminar</button>
+                <button class="botonAgregar" id="btnModificar">Modificar</button>
+                <button class="botonEliminar" id="btnEliminar">Eliminar</button>
             </div>
         </div>
 
         <!-- DIV OCULTO 2 (AGREGAR) -->
-        <div class="divOculto" id="divOculto2">
+        <div class="divOculto2" id="divOculto2">
             <!-- BUTTON X para ocultar el formulario -->
-           <button class="btnCerrar" id="btnCerrar">X</button>
-           <!-- <div class="text-center"> -->
-           <div>
+           <button class="btnCerrar" id="btnCerrar2">X</button>
+          
+           <div id="formulario">
                <!-- INPUT Nombre -->
                <br>
                <p id="Pnombre">Nombre:</p>
-               <input type="text" id="nombreA" placeholder="Ingrese Nombre...">
+               <input type="text" id="nombreA" placeholder="Ingrese Nombre..."style="text-align:center">
                <br><br>
                <!-- INPUT Apellido -->
                <p id="Papellido">Apellido:</p>
-               <input type="text" id="apellidoA" placeholder="Ingrese Apellido...">
+               <input type="text" id="apellidoA" placeholder="Ingrese Apellido..."style="text-align:center">
                <br><br>
                <!-- INPUT Fecha -->
                <p id="Pfecha">Fecha (AAAA/MM/DD):</p>
-               <input type="text" id="fechaA" placeholder="Ingrese fecha...">
+               <input type="text" id="fechaA" placeholder="Ingrese fecha..."style="text-align:center">
                <br><br>
                
                <!-- SELECT SEXO-->
@@ -94,7 +93,7 @@
            
                <br><br>
                
-               <button class="" id="btnAgregarConfirm">Agregar 
+               <button class="botonAgregar" id="btnAgregarConfirm">Agregar 
                   
                </button>
               
@@ -106,7 +105,16 @@
               
 
     </div>
+    <div class="login" id="loginWindow">
 
+            <label for="user">Usuario</label> <br>
+            <input type="text" id="user" placeholder="usuario"> <br>
+    <br>
+            <label for="pasw">Contraseña</label> <br>
+            <input type="password" id="pasw" placeholder="1234"> <br>
+             <br>
+            <input type="submit" value="Log in" class="guardar" id="submit_login">
+        </div>
     
 
 </body>

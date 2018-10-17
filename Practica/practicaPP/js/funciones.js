@@ -15,8 +15,14 @@ window.onload = function () {
     var btnCerrar = document.getElementById("btnCerrar");
     btnCerrar.addEventListener("click", cierraDiv);
 
+    var btnCerrar2 = document.getElementById("btnCerrar2");
+    btnCerrar2.addEventListener("click", cierraDiv2);
+
     var btnAgregar = document.getElementById("btnAgregar");
     btnAgregar.addEventListener("click", muestroDivAgregar);
+
+    var btnLogin = document.getElementById("submit_login");
+    submit_login.addEventListener("click", loginAccesso);
 
     var btnAgregarConfirm = document.getElementById("btnAgregarConfirm");
     btnAgregarConfirm.addEventListener("click",agregarPersona)
@@ -43,6 +49,28 @@ function XMLGetPersonas() {
 
 
     xml.send();
+}
+
+function loginAccesso() {
+    document.getElementById("loginWindow").style.visibility = "hidden";
+
+    document.getElementById("divListado").style.visibility = "visible";
+
+    // xml.onreadystatechange = logPost;
+
+    //obtenemos user y pass del popup log in y enviamos un re post
+    var usuario = document.getElementById("user").value;
+    var pass = document.getElementById("pasw").value;
+
+
+    solicitud.open("POST", "http://localhost:3000/login", true);
+    solicitud.setRequestHeader('Content-Type', 'application/json');
+
+    // esto cambiar!! lo veo desde el js del profe
+    var log = { "email": usuario, "password":pass };
+
+    solicitud.send(JSON.stringify(log));
+    
 }
 
 //MUESTRO LA TABLA
@@ -91,9 +119,15 @@ function muestroDivAgregar() {
 //OCULTO EL DIV
 
 function cierraDiv() {
+    
+
     document.getElementById("divOculto").style.visibility="hidden";
 
+
     
+}
+function cierraDiv2() {
+    document.getElementById("divOculto2").style.visibility="hidden";
 }
 
 //MOSTRAR DIV OCULTO con CLICK
@@ -295,8 +329,10 @@ function transicion() {
     document.getElementById("spinner").style.visibility = "visible";
     if (xml.readyState ==4) {
         if (xml.status==200) {
+             alert("Satisfactorio.");
+            document.getElementById("loginWindow").style.visibility ="hidden";
             location.reload();
-            // alert("Satisfactorio.");
+            
             
         } else{document.getElementById("spinner").style.visibility = "hidden";}
         
