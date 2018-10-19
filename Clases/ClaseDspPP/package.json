@@ -1,0 +1,19 @@
+{
+  "name": "ClaseDspPP",
+  "version": "1.0.0",
+  "description": "tag        $ (\"P\")\r ID    $ (\"#P\")\r CLASE     $ (\".P\")",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

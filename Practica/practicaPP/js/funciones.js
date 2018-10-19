@@ -21,8 +21,8 @@ window.onload = function () {
     var btnAgregar = document.getElementById("btnAgregar");
     btnAgregar.addEventListener("click", muestroDivAgregar);
 
-    var btnLogin = document.getElementById("submit_login");
-    submit_login.addEventListener("click", loginAccesso);
+    // var btnLogin = document.getElementById("submit_login");
+    // submit_login.addEventListener("click", loginAccesso);
 
     var btnAgregarConfirm = document.getElementById("btnAgregarConfirm");
     btnAgregarConfirm.addEventListener("click",agregarPersona)
@@ -63,13 +63,13 @@ function loginAccesso() {
     var pass = document.getElementById("pasw").value;
 
 
-    solicitud.open("POST", "http://localhost:3000/login", true);
-    solicitud.setRequestHeader('Content-Type', 'application/json');
+    xml.open("POST", "http://localhost:3000/login", true);
+    xml.setRequestHeader('Content-Type', 'application/json');
 
     // esto cambiar!! lo veo desde el js del profe
-    var log = { "email": usuario, "password":pass };
+    // var log = { "email": usuario, "password":pass };
 
-    solicitud.send(JSON.stringify(log));
+    // xml.send(JSON.stringify(log));
     
 }
 
@@ -221,7 +221,7 @@ function agregarPersona() {
     if(flag== true && confirm("Confirma agregar persona?"))
     {
         var spinner = document.getElementById("spinner");
-        spinner.style.visibility = "visible";
+        spinner.style.display = "block";
 
         xml.open("POST","http://localhost:3000/nueva");
         xml.setRequestHeader('Content-Type', 'application/json');
@@ -277,7 +277,7 @@ function modificarPersona() {
     if(flag== true && confirm("Confirma modificar persona?"))
     {
         var spinner = document.getElementById("spinner");
-        spinner.style.visibility = "visible";
+        spinner.style.display = "block";
 
         xml.open("POST","http://localhost:3000/editar");
         xml.setRequestHeader('Content-Type', 'application/json');
@@ -305,7 +305,7 @@ function eliminarPersona() {
 
 
     if (confirm("Confirma eliminar persona?")) {
-        spinner.style.visibility = "visible";
+        spinner.style.display = "block";
 
         xml.open("POST","http://localhost:3000/eliminar");
         xml.setRequestHeader('Content-Type', 'application/json');
@@ -326,17 +326,14 @@ function eliminarPersona() {
 
 function transicion() {
     
-    document.getElementById("spinner").style.visibility = "visible";
-    if (xml.readyState ==4) {
-        if (xml.status==200) {
-             alert("Satisfactorio.");
-            document.getElementById("loginWindow").style.visibility ="hidden";
-            location.reload();
-            
-            
-        } else{document.getElementById("spinner").style.visibility = "hidden";}
+    //la funcion esta mal.
+
+    
+    document.getElementById("spinner").style.display = "block";
+    location.reload();
+    document.getElementById("spinner").style.display = "none";
         
-    }
+   
     
     
 

@@ -1,0 +1,146 @@
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        font-style: oblique;
+        
+  }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+   .btnCerrar{
+    float: right;
+    right:-15px; 
+    top:-40px; 
+    
+    
+  }
+  .login{
+    position: fixed;
+    background-color: rgb(130, 135, 141);
+    margin: 2%;
+    padding: 2%;
+    border-radius:10px;
+    box-shadow: 5px  5px 0px #424242; 
+    border:2px solid #000;
+    top: 50%;
+    left: 50%;
+    width:170px;
+    height:120px;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -8em; /*set to a negative number 1/2 of your width*/
+    /* border: 1px solid #ccc;
+    background-color: #f3f3f3; */
+  }
+
+  .divOculto,.divOculto2{
+
+    visibility: hidden;
+    position: fixed;
+    bottom:20%;
+    right:40%;
+    height: 65%;
+    text-align: center;
+    margin: 2%;
+    background-color: lightblue;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  .btnCerrar,.btnCerrar2{
+    color: white;
+    background-color: red;
+    position: absolute; 
+    bottom: 93%; 
+    right: 0%;
+    border-radius:10px;
+    width: 20%;
+    height: 20px;
+  }
+  .botonAgregar{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  .botonAgregar:hover{
+    background-color: green;
+    color: white;
+  }
+  #btnAgregarConfirm,#btnModificar{
+    position:initial;
+  }
+  #submit_login{
+    /* position: absolute; */
+    right: 10px;
+    top: 5px;
+    width: 150px;
+    height: 30px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  #submit_login:hover{
+    background-color: blue;
+    color: white;
+  }
+  .botonEliminar{
+    border-radius: 12px;
+    background-color: white;
+    width: 100px;
+    height: 50px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+  .botonEliminar:hover{
+    background-color: red;
+    color: black;
+    
+  }
+
+  #formulario{
+    text-align: center;
+  }
+
+  .spinner{
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-bottom: 16px solid blue;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

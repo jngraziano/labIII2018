@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- AGREGO JQUERY SIN INSTALADOR -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <!-- Directo al archivo descargado -->
+    <!-- <script src="./js/jquery-3.3.1.min.js" ></script> -->
+
+    <!-- Directo apuntando a lo que instalamos por npm -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+    <title>Clase jquery</title>
+
+    <script>
+    $(document).ready(function () {
+        $("#iNombre").val("nuevo texto"); //Accedo por id
+        $("p").html("text ingresado dentro del tag P"); //accedo por tag
+        $(".btn").html("Boton nuevo"); //acceso por clase
+
+        //recordar jquery efects
+
+
+        // alert();
+    })
+    
+    </script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <input type="text" id="iNombre">
+
+    <p></p>
+
+    <button class="btn"></button>
+</body>
+</html>
