@@ -274,11 +274,11 @@ function modificarPersona() {
     }
 
 
-    if(flag== true && confirm("Confirma modificar persona?"))
+    // if(flag== true && confirm("Confirma modificar persona?"))
+    if(flag==true)
     {
-        var spinner = document.getElementById("spinner");
-        spinner.style.display = "block";
-
+        document.getElementById("spinner").style.display = "block";
+        
         xml.open("POST","http://localhost:3000/editar");
         xml.setRequestHeader('Content-Type', 'application/json');
 
@@ -302,9 +302,11 @@ function eliminarPersona() {
     var idaPasar = target.id
 
     var spinner = document.getElementById("spinner");
+    var flag =true;
 
-
-    if (confirm("Confirma eliminar persona?")) {
+    // if (confirm("Confirma eliminar persona?")) 
+    if(flag == true)
+    {
         spinner.style.display = "block";
 
         xml.open("POST","http://localhost:3000/eliminar");
@@ -326,11 +328,11 @@ function eliminarPersona() {
 
 function transicion() {
     
-    //la funcion esta mal.
+    // nunca llamo a esto
 
     
-    document.getElementById("spinner").style.display = "block";
-    location.reload();
+    // document.getElementById("spinner").style.display = "block";
+    // location.reload();
     document.getElementById("spinner").style.display = "none";
         
    

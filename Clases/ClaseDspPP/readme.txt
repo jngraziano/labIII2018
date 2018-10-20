@@ -81,3 +81,18 @@ top 0
 
 
 va a pedir que tenga jquery, va a pedir manejo de imagenes, y va a usar una nueva funcion de la api
+
+
+JQUERY
+.var()
+.html()
+.show()
+.hide()
+
+llamo por 
+numeral 
+punto
+nada
+
+se va a tomar en cuanta usar animaciones de jquery usando jquery effects
+fijarse w3school

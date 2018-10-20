@@ -17,28 +17,111 @@
 
     <script>
     $(document).ready(function () {
-        $("#iNombre").val("nuevo texto"); //Accedo por id
-        $("p").html("text ingresado dentro del tag P"); //accedo por tag
-        $(".btn").html("Boton nuevo"); //acceso por clase
+        // $("#iNombre").val("nuevo texto"); //Accedo por id
+        // $("p").html("text ingresado dentro del tag P"); //accedo por tag
+        // $(".btn").html("Boton nuevo"); //acceso por clase
+        
+        //Funcion usando jquery ya levanto todas las personas usando get
+                    //primer variable el link de la api
+                    //segunda variable un callback, aca creo la funcion ahi mismo
+        $("#btnget").click(function () {
+            $.get("http://localhost:3000/personas", function (data, status) {
+                alert("Date: " + data + "\nStatus: " + status);
+                console.log(data);
+                
+            })
+            
+        })
+
+        $("#btnpost").click(function () {
+            //USANDO .ajax es solo un archivo
+            $.ajax({
+                url:"http://localhost:3000/nueva",
+                data:{
+                    nombre:"Matias",
+                    apellido: "ajax",
+                    sexo: "male",
+                    fecha: "1976-12-31"
+                },
+                type:"POST",
+                success: function (data, status, type) {
+                var dataN = JSON.stringify(data);
+                alert("Data: "+ dataN + "\nStatus: "+status + "\nType: "+type);
+                
+                },
+                error: function (status) {
+                    alert("Error");
+                    
+                },
+                timeout:10,
+                async:false
+
+            })
+            //USANDO POST, paso por parametros
+            $.post("http://localhost:3000/nueva",
+            {
+                nombre:"Matias",
+                apellido: "post",
+                sexo: "male",
+                fecha: "1976-12-31"
+            },
+            //primer parametro viene el data, el status en el segundo, el tipo en el tercero
+            function (data, status, type) {
+                var dataN = JSON.stringify(data);
+                alert("Data: "+ dataN + "\nStatus: "+status + "\nType: "+type);
+                
+            }
+            )
+            
+        })
+        //uso change porque 
+        $("#btnimg").change(function () {
+            //Proceso de base64 el famoso
+
+            if(this.files && this.files[0]){
+                var fReader = new FileReader();
+
+                fReader.addEventListener("load", function (e) {
+                    console.log(e.target.result);//es lo mismo que setatribbiut
+                    $("#imagen").attr("src",e.target.result);
+                    //si se lo paso directamente al src de un tag img levanta la imagen, por eso uso attr
+                    
+                })
+                fReader.readAsDataURL(this.files[0]);
+            }
+
+
+        })
+
 
         //recordar jquery efects
-
-
-        // alert();
+        
+        // base64
+        //url para decode un base64: https://codebeautify.org/base64-to-image-converter
     })
     
     </script>
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    
 </head>
 <body>
-    <input type="text" id="iNombre">
+    <!-- <input type="text" id="iNombre">
 
-    <p></p>
+    <p></p> -->
 
-    <button class="btn"></button>
+    <button id="btnget">boton GET</button>
+    <br>
+    <br>
+    <br>
+    <button id="btnpost">boton POST</button>
+    <br>
+    <br>
+    <br>
+    <img id="imagen" height="150">
+   <input type="file" id="btnimg">
+
+
 </body>
 </html>
