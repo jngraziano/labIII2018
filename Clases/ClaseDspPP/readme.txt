@@ -96,3 +96,7 @@ nada
 
 se va a tomar en cuanta usar animaciones de jquery usando jquery effects
 fijarse w3school
+
+
+        //recordar jquery efects
+        // jquery animacion fijarse para el parcial
