@@ -80,7 +80,7 @@
 
             if(this.files && this.files[0]){
                 var fReader = new FileReader();
-
+                console.log(fReader);
                 fReader.addEventListener("load", function (e) {
                     console.log(e.target.result);//es lo mismo que setatribbiut
                     $("#imagen").attr("src",e.target.result);
@@ -95,7 +95,7 @@
 
 
         //recordar jquery efects
-        
+
         // base64
         //url para decode un base64: https://codebeautify.org/base64-to-image-converter
     })
