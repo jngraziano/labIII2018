@@ -14,7 +14,8 @@ var personas = [{
   "nombre": "Marguerite",
   "apellido": "Norkett",
   "fecha": "2018-03-07",
-  "sexo": "Female"
+  "sexo": "Female",
+  "avatar": "https://es.la-croix.com/images/0000/dios-puede-verlo-todo.jpg"
 }, {
   "id": 2,
   "nombre": "Renata",

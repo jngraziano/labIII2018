@@ -1,8 +1,10 @@
 html {
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS';
+    /* font-family: 'Arial'; */
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
         font-style: oblique;
+        background-color: black;
         
   }
 
@@ -11,22 +13,47 @@ table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
+
+
+    
+}
+th{
+  background-color: rgb(217, 239, 248);
 }
 
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 3px;
+   
+}
+tr{
+  background-color: white;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
 
-   .btnCerrar{
-    float: right;
-    right:-15px; 
-    top:-40px; 
-    
-    
-  }
+h2{
+  
+  height: 20%;
+  width: 15%;
+  border-radius: 200px;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transition-duration: 0.4s;
+}
+h2:hover{
+  background-color: darkblue;
+  color: white;
+}
+
+
+.btnCerrar{
+float: right;
+right:-15px; 
+top:-40px; 
+
+
+}
   .login{
     position: fixed;
     background-color: rgb(130, 135, 141);
@@ -46,15 +73,13 @@ tr:nth-child(even){background-color: #f2f2f2}
   }
 
   .divOculto,.divOculto2{
-
-    visibility: hidden;
     position: fixed;
     bottom:20%;
     right:40%;
-    height: 65%;
+    height: 70%;
     text-align: center;
     margin: 2%;
-    background-color: lightblue;
+    background-color:  rgb(217, 239, 248);
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -69,7 +94,7 @@ tr:nth-child(even){background-color: #f2f2f2}
     width: 20%;
     height: 20px;
   }
-  .botonAgregar{
+  .btnVerde {
     position: absolute;
     right: 10px;
     top: 5px;
@@ -78,10 +103,11 @@ tr:nth-child(even){background-color: #f2f2f2}
     border-radius: 12px;
     background-color: white;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-transition-duration: 0.4s; /* Safari */
+
     transition-duration: 0.4s;
   }
-  .botonAgregar:hover{
+ 
+  .btnVerde:hover{
     background-color: green;
     color: white;
   }
@@ -124,25 +150,35 @@ tr:nth-child(even){background-color: #f2f2f2}
   }
 
   .spinner{
-    background-color: #424242;
+   /* background-color: #424242;
     display: none;
+     width: 150px;
+    height: 150px;
+   */
    
-    /* border-top: 16px solid blue;
-    border-bottom: 16px solid blue; */
-    width: 100%;
-    height: 100%;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
 
-    /* -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite; */
-  }
-  
-  /* Safari */
-  /* @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
   }
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  } */
+  }
+
+  .claseFondo{
+    height: 500px;
+    max-width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }

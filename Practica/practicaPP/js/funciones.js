@@ -1,55 +1,85 @@
 var xml = new XMLHttpRequest();
 
 //Creo una persona Global para manejar datos
-var usuarioGlobal = { "id":"","nombre":"","apellido":"","fecha":"","sexo":"" }
+var usuarioGlobal = { "id":"","nombre":"","apellido":"","fecha":"","sexo":"","avatar":"" }
 
 
-window.onload = function () {
-
-    //Muestro la tabla:
-    XMLGetPersonas();
-
-    //#region Agrego metodos a los eventos click
-
-    //agrego al evento cuando hago click en la X para ocultar el div
-    var btnCerrar = document.getElementById("btnCerrar");
-    btnCerrar.addEventListener("click", cierraDiv);
-
-    var btnCerrar2 = document.getElementById("btnCerrar2");
-    btnCerrar2.addEventListener("click", cierraDiv2);
-
-    var btnAgregar = document.getElementById("btnAgregar");
-    btnAgregar.addEventListener("click", muestroDivAgregar);
-
-    // var btnLogin = document.getElementById("submit_login");
-    // submit_login.addEventListener("click", loginAccesso);
-
-    var btnAgregarConfirm = document.getElementById("btnAgregarConfirm");
-    btnAgregarConfirm.addEventListener("click",agregarPersona)
+$(document).ready(function () {
     
-    //agrego al evento cuando hago click en el boton Modificar dentro del div oculto
-    var btnModificar = document.getElementById("btnModificar");
-    btnModificar.addEventListener("click", modificarPersona);
+  
+    //CREO y MUESTRO TABLA
+    $.get("http://localhost:3000/personas",function (data, status) {
 
-    //agrego al evento cuando hago click en el boto Eliminar dentro del div ocuto
-    var btnEliminar = document.getElementById("btnEliminar");
-    btnEliminar.addEventListener("click",eliminarPersona);
-    //#endregion
+        console.log(status);
+        console.log(data);
+
+        var personasCompleto = data;
+       
+            var cuerpoTablaHTML = document.getElementById('tCuerpo');
+            var seccionPersonas = "";
+            
+
+            for(var i=0; i< personasCompleto.length; i++)
+            {
+
+                seccionPersonas += "<tr>  <td hidden>"+ personasCompleto[i].id       + "</td>" +
+                                          "<td>" +      personasCompleto[i].nombre   + "</td>" +
+                                          "<td>" +      personasCompleto[i].apellido + "</td>" +
+                                          "<td>" +      personasCompleto[i].fecha    + "</td>" +
+                                          "<td>" +      personasCompleto[i].sexo     + "</td>"+
+                                          "<td>" + "<img src='"+ personasCompleto[i].avatar + "'height='100'></td>"
+                                 "</tr>" ;
+
+                cuerpoTablaHTML.innerHTML = seccionPersonas;
+            }
+                    
+            
+    })//fin $.get
+
+    $("h2").click(function () { 
+        $("#listadoPersonas").toggle(1000);
+        
+    });
+
+    $("#tCuerpo").dblclick(function () {
+        
+        muestroDivconClick();
+        
+    })//fin td.dblclick
+
+    $("#btnAgregar").click(function() { 
+       $("#divOculto2").show(1000);
+        
+    });
+
+    $("#btnAgregarConfirm").click(function() { 
+        agregarPersona();
+        
+    });
+
+    $("#btnModificar").click(function () { 
+       modificarPersona();
+        
+    });
+
+    $("#btnEliminar").click(function () { 
+        eliminarPersona();
+        
+    });
+
     
-}
+
+    $(".btnCerrar").click(function () {
+        $(".divOculto").hide(1000);
+        
+    })
+   
+
+    
+})//fin del document.ready
+
 
 //#region Como muestro la tabla 
-
-//GET al servidor para armar la tabla
-function XMLGetPersonas() {
-    xml.onreadystatechange = muestraTabla;
-
-    xml.open("GET","http://localhost:3000/personas",true);
-
-
-
-    xml.send();
-}
 
 function loginAccesso() {
     document.getElementById("loginWindow").style.visibility = "hidden";
@@ -73,75 +103,24 @@ function loginAccesso() {
     
 }
 
-//MUESTRO LA TABLA
-function muestraTabla() {
-    if (xml.readyState == 4) {
-        
-        if (xml.status == 200) {
-            
-            var personasCompleto = JSON.parse(xml.responseText);
-            var cuerpoTablaHTML = document.getElementById('tCuerpo');
-            var seccionPersonas = "";
-            
 
-            for(var i=0; i< personasCompleto.length; i++)
-            {
-
-                seccionPersonas += "<tr>   <td hidden>"+ personasCompleto[i].id      + "</td>" +
-                                          "<td>" +      personasCompleto[i].nombre   + "</td>" +
-                                          "<td>" +      personasCompleto[i].apellido + "</td>" +
-                                          "<td>" +      personasCompleto[i].fecha    + "</td>" +
-                                          "<td>" +      personasCompleto[i].sexo     + "</td>"+
-                                 "</tr>" ;
-                
-
-                cuerpoTablaHTML.innerHTML = seccionPersonas;
-            }
-            //Uso el ondblclick para que al hacer dobleclick vaya al metodo muestroDivconClick
-            cuerpoTablaHTML.ondblclick = muestroDivconClick;
-
-            console.log(personasCompleto);
-
-        }
-    }
-}
 //#endregion
 
 //#region Mostrar y Ocultar div
-
-// MUESTRO segundo div para agregar
-function muestroDivAgregar() {
-
-    document.getElementById("divOculto2").style.visibility = "visible";    
-
-    
-}
-//OCULTO EL DIV
-
-function cierraDiv() {
-    
-
-    document.getElementById("divOculto").style.visibility="hidden";
-
-
-    
-}
-function cierraDiv2() {
-    document.getElementById("divOculto2").style.visibility="hidden";
-}
 
 //MOSTRAR DIV OCULTO con CLICK
 
 function muestroDivconClick() {
 
-   
+   $("#divOculto").show(1000);
+
     var target = event.target || event.srcElement;
 
     fila = target.parentNode;
 
     var celdas = fila.getElementsByTagName("td");
 
-    document.getElementById("divOculto").style.visibility = "visible";
+    // document.getElementById("divOculto").style.visibility = "visible";
     
     usuarioGlobal.id= celdas[0].innerHTML;    
     document.getElementById("nombreE").value= celdas[1].innerHTML;
@@ -149,20 +128,15 @@ function muestroDivconClick() {
     document.getElementById("fechaE").value=celdas[3].innerHTML;
     
 
-    //limpio radiobutton
-    // document.getElementById("radMasculino").checked = false;
-    // document.getElementById("radFemenino").checked = false;
-
     
     if (celdas[4].innerHTML == "Male") {
 
          var sexo = document.getElementById("radMasculino");
-        //  document.getElementById("radFemenino").checked = false;
 
     }
     else {
           var sexo = document.getElementById("radFemenino");
-        //   document.getElementById("radMasculino").checked = false;
+       
 
 
     }
@@ -217,19 +191,26 @@ function agregarPersona() {
         sexoNuevo = "Male"; 
     }
 
-
-    if(flag== true && confirm("Confirma agregar persona?"))
+   
+   
+    if(flag== true && confirm("¿Confirma agregar persona?"))
     {
         var spinner = document.getElementById("spinner");
         spinner.style.display = "block";
 
-        xml.open("POST","http://localhost:3000/nueva");
-        xml.setRequestHeader('Content-Type', 'application/json');
-
-        datosPersonaJson = { "nombre": nombreNuevo, "apellido":apellidoNuevo, "fecha":fechaNueva, "sexo": sexoNuevo };
-        xml.send(JSON.stringify(datosPersonaJson));
-
-        xml.onreadystatechange = transicion;
+        $.post("http://localhost:3000/nueva",
+        {
+                nombre: nombreNuevo,
+                apellido: apellidoNuevo,
+                sexo: sexoNuevo,
+                fecha: fechaNueva
+        },
+        
+        
+        function (data, status, jqXHR) {
+            transicionSpinner();
+        }
+        );       
        
     }
 }
@@ -274,18 +255,24 @@ function modificarPersona() {
     }
 
 
-    // if(flag== true && confirm("Confirma modificar persona?"))
-    if(flag==true)
+     if(flag== true && confirm("¿Confirma modificar persona?"))
     {
         document.getElementById("spinner").style.display = "block";
+
+         $.post("http://localhost:3000/editar",
+        {
+                id: usuarioGlobal.id,
+                nombre: nombreEdit,
+                apellido: apellidoEdit,
+                sexo: sexoEdit,
+                fecha: fechaEdit
+        },
         
-        xml.open("POST","http://localhost:3000/editar");
-        xml.setRequestHeader('Content-Type', 'application/json');
-
-        datosPersonaJson = { "id": usuarioGlobal.id,"nombre": nombreEdit, "apellido":apellidoEdit, "fecha":fechaEdit, "sexo": sexoEdit };
-        xml.send(JSON.stringify(datosPersonaJson));
-
-        xml.onreadystatechange = transicion;
+        
+        function (data, status, jqXHR) {
+            transicionSpinner();
+        }
+        );
        
     }
   
@@ -302,20 +289,24 @@ function eliminarPersona() {
     var idaPasar = target.id
 
     var spinner = document.getElementById("spinner");
-    var flag =true;
+    
 
-    // if (confirm("Confirma eliminar persona?")) 
-    if(flag == true)
+   
+    if(confirm("¿Confirma eliminar persona?"))
     {
-        spinner.style.display = "block";
+        var spinner = document.getElementById("spinner");
+            spinner.style.display = "block";
 
-        xml.open("POST","http://localhost:3000/eliminar");
-        xml.setRequestHeader('Content-Type', 'application/json');
+        $.post("http://localhost:3000/eliminar",
+        {
+                id:  usuarioGlobal.id
+                
+        },
+        function (data, status, jqXHR) {
+            transicionSpinner();
+        }
+        );
 
-        datosPersonaJson = { "id": usuarioGlobal.id};
-        xml.send(JSON.stringify(datosPersonaJson));
-
-        xml.onreadystatechange = transicion;
     }
         
 
@@ -326,16 +317,25 @@ function eliminarPersona() {
 
 //SPINNER (NO ANDA)
 
-function transicion() {
+function transicionSpinner() {
     
-    // nunca llamo a esto
-
-    
+      
     // document.getElementById("spinner").style.display = "block";
-    // location.reload();
-    document.getElementById("spinner").style.display = "none";
-        
    
+    //anda flama el tema del spiner solo que es chico y se muestra abajo nada mas 
+    
+
+    // $("#divTotal").css("filter", "grayscale(100%)");
+ 
+ 
+    document.getElementById("spinner").style.display = "none";
+    $(".divOculto").hide();
+
+
+    //No hay chance no toma el fondo 
+    $("body").addClass("claseFondo");
+        
+    location.reload();
     
     
 
