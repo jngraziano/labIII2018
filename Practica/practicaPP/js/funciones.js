@@ -27,11 +27,85 @@ $(document).ready(function () {
                                           "<td>" +      personasCompleto[i].apellido + "</td>" +
                                           "<td>" +      personasCompleto[i].fecha    + "</td>" +
                                           "<td>" +      personasCompleto[i].sexo     + "</td>"+
-                                          "<td>" + "<img src='"+ personasCompleto[i].avatar + "'id='imgMuestro' height='100'></td>"
+                                          "<td>" + "<img src='"+ personasCompleto[i].foto + "'id='imgMuestro' height='80'>"+
+                                          "<input type='file' "+" hidden>"+"</td>"+
+
+                                    
+                                         
+
                                  "</tr>" ;
 
                 cuerpoTablaHTML.innerHTML = seccionPersonas;
+                
+
+                $("img").on("click", function () {
+
+                   var target = event.target || event.srcElement;
+                    
+                   if(target.nextSibling.hidden == true)
+                   {
+                    target.nextSibling.hidden=false;
+                   }
+                   else{
+                    target.nextSibling.hidden = true;
+                    
+
+                   }               
+        
+                   
+                   
+                   
+                      
+                  });
+
+                  $("input").change(function () { 
+                    var imgPost="";
+                    var target = event.target;
+ 
+                     var input =  target;
+ 
+ 
+                             var fReader = new FileReader();
+                             fReader.addEventListener("load", function (e) {
+                                
+                            
+                                 imgPost=e.target.result;
+ 
+                                 
+                             })
+                             
+                             fReader.readAsDataURL(input.files[0]);
+ 
+                             $.post("http://localhost:3000/editarFoto",
+                            {
+                                        id: 1, 
+                                        foto: imgPost
+     
+                             }                                  
+                             ); 
+                      
+                  });
+
+                    
+ 
+                  
+                        
+        
+
+                   
+    
+                        // var spinner = document.getElementById("spinner");
+                        // spinner.style.display = "block";
+
+                            
+       
+    
+
+
+                
             }
+
+           
                     
             
     })//fin $.get
@@ -66,6 +140,7 @@ $(document).ready(function () {
         eliminarPersona();
         
     });
+    
 
     // $(".radioC").click(function () {
 
@@ -252,22 +327,22 @@ function agregarPersona() {
     }
 
     //BASE64
-    var imgPost;
-    var input = document.getElementById("inputImgA");
+    // var imgPost;
+    // var input = document.getElementById("inputImgA");
     
     // $("#imgMuestro").attr(function () { 
 
         // if(input.files && input.files[0]){
-            var fReader = new FileReader();
+            // var fReader = new FileReader();
             // console.log(fReader);
-            fReader.addEventListener("load", function (e) {
+            // fReader.addEventListener("load", function (e) {
                 // console.log(e.target.result);//es lo mismo que setatribbiut
                 // $("#imagen").attr("src",e.target.result);
                 //si se lo paso directamente al src de un tag img levanta la imagen, por eso uso attr
-                imgPost = e.target.result;
+                // imgPost = e.target.result;
                 
-            })
-            fReader.readAsDataURL(input.files[0]);
+            // })
+            // fReader.readAsDataURL(input.files[0]);
         // }
         
     // });
@@ -284,8 +359,8 @@ function agregarPersona() {
                 nombre: nombreNuevo,
                 apellido: apellidoNuevo,
                 sexo: sexoNuevo,
-                fecha: fechaPost,
-                avatar: imgPost
+                fecha: fechaPost
+                // avatar: imgPost
 
         },
         
@@ -392,16 +467,16 @@ function modificarPersona() {
     // $("#imgMuestro").attr(function () { 
 
         // if(input.files && input.files[0]){
-            var fReaderE = new FileReader();
+            // var fReaderE = new FileReader();
             // console.log(fReader);
-            fReaderE.addEventListener("load", function (e) {
+            // fReaderE.addEventListener("load", function (e) {
                 // console.log(e.target.result);//es lo mismo que setatribbiut
                 // $("#imagen").attr("src",e.target.result);
                 //si se lo paso directamente al src de un tag img levanta la imagen, por eso uso attr
-                imgE = e.target.result;
+            //     imgE = e.target.result;
                 
-            })
-            fReaderE.readAsDataURL(inputE.files[0]);
+            // })
+            // fReaderE.readAsDataURL(inputE.files[0]);
         // }
         
     // });
@@ -419,8 +494,8 @@ function modificarPersona() {
                 nombre: nombreEdit,
                 apellido: apellidoEdit,
                 sexo: sexoEdit,
-                fecha: fechaPost,
-                avatar: imgE
+                fecha: fechaPost
+                // avatar: imgE
         },
         
         
