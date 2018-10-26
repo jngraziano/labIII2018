@@ -27,7 +27,7 @@ $(document).ready(function () {
                                           "<td>" +      personasCompleto[i].apellido + "</td>" +
                                           "<td>" +      personasCompleto[i].fecha    + "</td>" +
                                           "<td>" +      personasCompleto[i].sexo     + "</td>"+
-                                          "<td>" + "<img src='"+ personasCompleto[i].avatar + "'height='100'></td>"
+                                          "<td>" + "<img src='"+ personasCompleto[i].avatar + "'id='imgMuestro' height='100'></td>"
                                  "</tr>" ;
 
                 cuerpoTablaHTML.innerHTML = seccionPersonas;
@@ -67,7 +67,28 @@ $(document).ready(function () {
         
     });
 
-    
+    // $(".radioC").click(function () {
+
+    //     var flag = false;
+
+    //     if (flag == true) {
+    //         $("#radMasculinoE").prop("checked",false);
+    //         $("#radMasculinoA").prop("checked",false);
+          
+    //     }
+    //     if ($("#radMasculinoE").prop("checked") || $("#radMasculinoA").prop("checked")) {
+
+    //         $("#radFemeninoE").prop("checked",false);
+    //         $("#radFemeninoA").prop("checked",false);
+    //         flag = true;
+    //     }
+    //     else{
+    //         $("#radMasculinoE").prop("checked",false);
+    //         $("#radMasculinoA").prop("checked",false);
+    //     }
+        
+    // });
+       
 
     $(".btnCerrar").click(function () {
         $(".divOculto").hide(1000);
@@ -112,7 +133,7 @@ function loginAccesso() {
 
 function muestroDivconClick() {
 
-   $("#divOculto").show(1000);
+    $("#divOculto").show(1000);
 
     var target = event.target || event.srcElement;
 
@@ -126,23 +147,20 @@ function muestroDivconClick() {
     document.getElementById("nombreE").value= celdas[1].innerHTML;
     document.getElementById("apellidoE").value=celdas[2].innerHTML;
     document.getElementById("fechaE").value=celdas[3].innerHTML;
-    
 
     
     if (celdas[4].innerHTML == "Male") {
 
-         var sexo = document.getElementById("radMasculino");
+        $("#radMasculinoE").prop("checked",true);
+        $("#radFemeninoE").prop("checked",false);
+
+     
 
     }
     else {
-          var sexo = document.getElementById("radFemenino");
-       
-
+        $("#radFemeninoE").prop("checked",true);
 
     }
-   
-
-    sexo.checked = true;
 
     
 }
@@ -162,26 +180,68 @@ function agregarPersona() {
     var apellidoNuevo =document.getElementById("apellidoA").value;
     var fechaNueva = document.getElementById("fechaA").value;
 
+    var fechaHOY = new Date();
+
     var sexoNuevo;
 
-    // VALIDO QUE AMBOS CAMPOS TENGAN MAS DE 3 CARACTERES
-    if (nombreNuevo.length < 3 || apellidoNuevo.length < 3) {
-        alert("El campo debe tener mas de 3 c. ");
+    // VALIDO QUE AMBOS CAMPOS TENGAN MAS DE 3 CARACTERES y no vacio
+    if (nombreNuevo.length < 3 || nombreNuevo == "") {
+     
+    //    $("#nombreA").addClass("ValidaError");
+    document.getElementById("nombreA").className  = "ValidaBorderColorError";
+
         flag= false;
     }
+    else {
+        // $("#nombreA").addClass("ValidaCorrecto");
+         document.getElementById("nombreA").className  = "ValidaBorderCorrecto";
 
+        
+    }
+    if (apellidoNuevo.length < 3 || apellidoNuevo == "") {
 
+        // $("#apellidoA").addClass("ValidaError");
+        document.getElementById("apellidoA").className  = "ValidaBorderColorError";
+        flag= false;
+    }
+    else {
+        // $("#apellidoA").addClass("ValidaCorrecto");
+        document.getElementById("apellidoA").className  = "ValidaBorderCorrecto";
+
+        
+    }
+
+    //VALIDO FECHA
+    var fechaSplit = fechaNueva.split("-");
+    var fechaValidada = new Date(fechaSplit[0],fechaSplit[1]-1,fechaSplit[2],0,0,0,0);
+    var fechaPost = fechaValidada.getFullYear() + "-" + ("0" + (fechaValidada.getMonth() + 1)).slice(-2) + "-" + ("0" + (fechaValidada.getDay() + 1)).slice(-2);
+  
+
+    if (fechaNueva == "" || fechaValidada.getTime() > fechaHOY.getTime()) {
+        document.getElementById("PfechaA").className = "ValidaTextColorError";
+        flag = false;
+    }
+    else{
+        document.getElementById("PfechaA").className = "ValidaTextColorCorrecto";
+        
+    }
 
     //VALIDO QUE SELECCIONEN UNO DE LOS DOS SEXOS
-    if (document.getElementById("radMasculinoA").checked && document.getElementById("radFemeninoA").checked ||
-    (document.getElementById("radMasculinoA").checked == false && document.getElementById("radFemeninoA").checked == false )
-    )
-    {
 
-        alert("Error, se debe seleccionar un sexo.");
+    var radMasculino = $("#radMasculinoA").prop("checked");
+    var radFemenino = $("#radFemeninoA").prop("checked");
+
+    // (document.getElementById("radMasculinoA").checked == false && document.getElementById("radFemeninoA").checked == false )
+
+    if (radMasculino && radFemenino)
+    {
         flag=false;
+        $("#radMasculinoA").prop("checked",false);
+        $("#radFemeninoA").prop("checked",false);
+
+        document.getElementById("labelSexoA").className = "ValidaTextColorError";
     } 
-    else if(document.getElementById("radFemeninoA").checked) {
+    else if(radFemenino) {
 
         sexoNuevo = "Female";
        
@@ -191,9 +251,30 @@ function agregarPersona() {
         sexoNuevo = "Male"; 
     }
 
+    //BASE64
+    var imgPost;
+    var input = document.getElementById("inputImgA");
+    
+    // $("#imgMuestro").attr(function () { 
+
+        // if(input.files && input.files[0]){
+            var fReader = new FileReader();
+            // console.log(fReader);
+            fReader.addEventListener("load", function (e) {
+                // console.log(e.target.result);//es lo mismo que setatribbiut
+                // $("#imagen").attr("src",e.target.result);
+                //si se lo paso directamente al src de un tag img levanta la imagen, por eso uso attr
+                imgPost = e.target.result;
+                
+            })
+            fReader.readAsDataURL(input.files[0]);
+        // }
+        
+    // });
+
+
    
-   
-    if(flag== true && confirm("¿Confirma agregar persona?"))
+    if(flag == true)
     {
         var spinner = document.getElementById("spinner");
         spinner.style.display = "block";
@@ -203,7 +284,9 @@ function agregarPersona() {
                 nombre: nombreNuevo,
                 apellido: apellidoNuevo,
                 sexo: sexoNuevo,
-                fecha: fechaNueva
+                fecha: fechaPost,
+                avatar: imgPost
+
         },
         
         
@@ -224,27 +307,75 @@ function modificarPersona() {
     var flag = true;
     var nombreEdit = document.getElementById("nombreE").value;
     var apellidoEdit =document.getElementById("apellidoE").value;
+    var fechaHOY = new Date();
+    var fechaEdit = $("#fechaE").val;
     var sexoEdit;
 
     // VALIDO QUE AMBOS CAMPOS TENGAN MAS DE 3 CARACTERES
-    if (nombreEdit.length < 3 || apellidoEdit.length < 3) {
-        alert("El campo debe tener mas de 3 c. ");
-        flag= false;
-    }
+    if (nombreEdit.length < 3 || nombreEdit == "") {
+     
+        //    $("#nombreA").addClass("ValidaError");
+        document.getElementById("nombreE").className  = "ValidaBorderColorError";
+    
+            flag= false;
+        }
+        else {
+            // $("#nombreA").addClass("ValidaCorrecto");
+             document.getElementById("nombreE").className  = "ValidaBorderCorrecto";
+    
+            
+        }
+        if (apellidoEdit.length < 3 || apellidoEdit == "") {
+    
+            // $("#apellidoA").addClass("ValidaError");
+            document.getElementById("apellidoE").className  = "ValidaBorderColorError";
+            flag= false;
+        }
+        else {
+            // $("#apellidoA").addClass("ValidaCorrecto");
+            document.getElementById("apellidoE").className  = "ValidaBorderCorrecto";
+    
+            
+        }
 
-    var fechaEdit = document.getElementById("fechaE").value;
+        //VALIDO FECHA
+        var fechaEdit = document.getElementById("fechaE").value;
+
+        var fechaSplit = fechaEdit.split("-");
+
+        var fechaValidada = new Date(fechaSplit[0],fechaSplit[1]-1,fechaSplit[2],0,0,0,0);
+        //recordar posible -1 al mes
+       
+        
+        var fechaPost = fechaValidada.getFullYear() + "-" + ("0" + (fechaValidada.getMonth() + 1)).slice(-2) + "-" + ("0" + (fechaValidada.getDay() + 1)).slice(-2);
+
+
+        if (fechaEdit == "" || fechaValidada.getTime() > fechaHOY.getTime()) {
+            document.getElementById("PfechaE").className = "ValidaTextColorError";
+            flag = false;
+        }
+        else{
+            document.getElementById("PfechaE").className = "ValidaTextColorCorrecto";
+            
+        }
+
+  
 
 
     //VALIDO QUE SELECCIONEN UNO DE LOS DOS SEXOS
-    if (document.getElementById("radMasculino").checked && document.getElementById("radFemenino").checked ||
-    (document.getElementById("radMasculino").checked == false && document.getElementById("radFemenino").checked == false )
-    )
-    {
 
-        alert("Error, se debe seleccionar un sexo.");
+    var radMasculino = $("#radMasculinoE").prop("checked");
+    var radFemenino = $("#radFemeninoE").prop("checked");
+
+    if (radMasculino && radFemenino || radMasculino == false && radFemenino == false)
+    {
         flag=false;
+        $("#radMasculinoE").prop("checked",false);
+        $("#radFemeninoE").prop("checked",false);
+
+        document.getElementById("labelSexoE").className = "ValidaTextColorError";
     } 
-    else if(document.getElementById("radFemenino").checked) {
+    else if(radFemenino) {
 
         sexoEdit = "Female";
        
@@ -254,9 +385,32 @@ function modificarPersona() {
         sexoEdit = "Male"; 
     }
 
+    //BASE64
+    var imgE;
+    var inputE = document.getElementById("inputImgE");
+    
+    // $("#imgMuestro").attr(function () { 
 
-     if(flag== true && confirm("¿Confirma modificar persona?"))
-    {
+        // if(input.files && input.files[0]){
+            var fReaderE = new FileReader();
+            // console.log(fReader);
+            fReaderE.addEventListener("load", function (e) {
+                // console.log(e.target.result);//es lo mismo que setatribbiut
+                // $("#imagen").attr("src",e.target.result);
+                //si se lo paso directamente al src de un tag img levanta la imagen, por eso uso attr
+                imgE = e.target.result;
+                
+            })
+            fReaderE.readAsDataURL(inputE.files[0]);
+        // }
+        
+    // });
+
+
+
+
+     if(flag== true)
+     {
         document.getElementById("spinner").style.display = "block";
 
          $.post("http://localhost:3000/editar",
@@ -265,7 +419,8 @@ function modificarPersona() {
                 nombre: nombreEdit,
                 apellido: apellidoEdit,
                 sexo: sexoEdit,
-                fecha: fechaEdit
+                fecha: fechaPost,
+                avatar: imgE
         },
         
         

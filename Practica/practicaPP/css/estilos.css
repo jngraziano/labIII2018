@@ -13,9 +13,10 @@ table {
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
-
-
     
+}
+input{
+  border-radius: 50px;
 }
 th{
   background-color: rgb(217, 239, 248);
@@ -181,4 +182,20 @@ top:-40px;
     max-width: 100%;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+  }
+
+  .ValidaBorderColorError{
+    /* border-color: red; */
+    border: 3px solid red
+  }
+  .ValidaBorderCorrecto{
+    /* border-color: green; */
+    border: 3px solid green;
+  }
+
+  .ValidaTextColorError{
+    color: red;
+  }
+  .ValidaTextColorCorrecto{
+    color: green;
   }

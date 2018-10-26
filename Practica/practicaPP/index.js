@@ -15,151 +15,154 @@ var personas = [{
   "apellido": "Norkett",
   "fecha": "2018-03-07",
   "sexo": "Female",
-  "avatar": "https://es.la-croix.com/images/0000/dios-puede-verlo-todo.jpg"
+  "avatar": "https://www.ecured.cu/images/thumb/a/a4/Perros1.jpg/260px-Perros1.jpg"
 }, {
   "id": 2,
   "nombre": "Renata",
   "apellido": "Bofield",
   "fecha": "1984-10-30",
-  "sexo": "Female"
+  "sexo": "Female",
+  "avatar": "https://seguros.elcorteingles.es/admin/assets/uploads/files/images/thumbnails_l/EL-PERRO-NO-BEBE-AGUA.jpg"
 }, {
   "id": 3,
   "nombre": "Corbet",
   "apellido": "Paulton",
   "fecha": "1986-07-19",
-  "sexo": "Male"
+  "sexo": "Male",
+  "avatar": "http://as01.epimg.net/epik/imagenes/2018/04/28/portada/1524913221_572475_1524913364_noticia_normal.jpg"
 }, {
   "id": 4,
   "nombre": "Gillie",
   "apellido": "Hallowes",
   "fecha": "1971-11-07",
-  "sexo": "Female"
-}, {
-  "id": 5,
-  "nombre": "Haslett",
-  "apellido": "Turbitt",
-  "fecha": "1951-04-28",
-  "sexo": "Male"
-}, {
-  "id": 6,
-  "nombre": "Willamina",
-  "apellido": "Simmers",
-  "fecha": "1983-07-26",
-  "sexo": "Female"
-}, {
-  "id": 7,
-  "nombre": "Laird",
-  "apellido": "Hall-Gough",
-  "fecha": "1987-03-21",
-  "sexo": "Male"
-}, {
-  "id": 8,
-  "nombre": "Vasily",
-  "apellido": "Eaves",
-  "fecha": "2011-11-28",
-  "sexo": "Male"
-}, {
-  "id": 9,
-  "nombre": "Elbertina",
-  "apellido": "Chatelain",
-  "fecha": "1959-09-14",
-  "sexo": "Female"
-}, {
-  "id": 10,
-  "nombre": "Geno",
-  "apellido": "Ell",
-  "fecha": "1976-12-31",
-  "sexo": "Male"
-}, {
-  "id": 11,
-  "nombre": "Constancia",
-  "apellido": "Tatton",
-  "fecha": "1955-03-15",
-  "sexo": "Female"
-}, {
-  "id": 12,
-  "nombre": "Dorian",
-  "apellido": "Hansley",
-  "fecha": "1958-06-20",
-  "sexo": "Female"
-}, {
-  "id": 13,
-  "nombre": "Saidee",
-  "apellido": "Phillp",
-  "fecha": "2014-08-31",
-  "sexo": "Female"
-}, {
-  "id": 14,
-  "nombre": "Isaiah",
-  "apellido": "Stansbie",
-  "fecha": "1995-06-21",
-  "sexo": "Male"
-}, {
-  "id": 15,
-  "nombre": "Ilse",
-  "apellido": "Keiling",
-  "fecha": "2002-08-01",
-  "sexo": "Female"
-}, {
-  "id": 16,
-  "nombre": "Reynard",
-  "apellido": "Cockshut",
-  "fecha": "1954-04-24",
-  "sexo": "Male"
-}, {
-  "id": 17,
-  "nombre": "Lisa",
-  "apellido": "Durker",
-  "fecha": "1997-07-24",
-  "sexo": "Female"
-}, {
-  "id": 18,
-  "nombre": "Mohandis",
-  "apellido": "De Laci",
-  "fecha": "1974-03-30",
-  "sexo": "Male"
-}, {
-  "id": 19,
-  "nombre": "Hardy",
-  "apellido": "McClaughlin",
-  "fecha": "1963-09-23",
-  "sexo": "Male"
-}, {
-  "id": 20,
-  "nombre": "Raf",
-  "apellido": "Petheridge",
-  "fecha": "1959-04-30",
-  "sexo": "Female"
-}, {
-  "id": 21,
-  "nombre": "Howard",
-  "apellido": "Piser",
-  "fecha": "1964-08-22",
-  "sexo": "Male"
-}, {
-  "id": 22,
-  "nombre": "Esma",
-  "apellido": "Shoubridge",
-  "fecha": "1953-02-05",
-  "sexo": "Female"
-}, {
-  "id": 23,
-  "nombre": "Tad",
-  "apellido": "O'Currigan",
-  "fecha": "1972-08-10",
-  "sexo": "Male"
-}, {
-  "id": 24,
-  "nombre": "Pamela",
-  "apellido": "Patching",
-  "fecha": "1991-07-10",
-  "sexo": "Female"
-}, {
-  "id": 25,
-  "nombre": "Caleb",
-  "apellido": "McPhee",
-  "fecha": "1987-03-17",
-  "sexo": "Male"
+  "sexo": "Female",
+  "avatar": "https://fotografias.antena3.com/clipping/cmsimages01/2017/02/07/364CAAAC-A60E-43BB-8FED-05AA0B8F3AF9/58.jpg"
+// }, {
+//   "id": 5,
+//   "nombre": "Haslett",
+//   "apellido": "Turbitt",
+//   "fecha": "1951-04-28",
+//   "sexo": "Male"
+// }, {
+//   "id": 6,
+//   "nombre": "Willamina",
+//   "apellido": "Simmers",
+//   "fecha": "1983-07-26",
+//   "sexo": "Female"
+// }, {
+//   "id": 7,
+//   "nombre": "Laird",
+//   "apellido": "Hall-Gough",
+//   "fecha": "1987-03-21",
+//   "sexo": "Male"
+// }, {
+//   "id": 8,
+//   "nombre": "Vasily",
+//   "apellido": "Eaves",
+//   "fecha": "2011-11-28",
+//   "sexo": "Male"
+// }, {
+//   "id": 9,
+//   "nombre": "Elbertina",
+//   "apellido": "Chatelain",
+//   "fecha": "1959-09-14",
+//   "sexo": "Female"
+// }, {
+//   "id": 10,
+//   "nombre": "Geno",
+//   "apellido": "Ell",
+//   "fecha": "1976-12-31",
+//   "sexo": "Male"
+// }, {
+//   "id": 11,
+//   "nombre": "Constancia",
+//   "apellido": "Tatton",
+//   "fecha": "1955-03-15",
+//   "sexo": "Female"
+// }, {
+//   "id": 12,
+//   "nombre": "Dorian",
+//   "apellido": "Hansley",
+//   "fecha": "1958-06-20",
+//   "sexo": "Female"
+// }, {
+//   "id": 13,
+//   "nombre": "Saidee",
+//   "apellido": "Phillp",
+//   "fecha": "2014-08-31",
+//   "sexo": "Female"
+// }, {
+//   "id": 14,
+//   "nombre": "Isaiah",
+//   "apellido": "Stansbie",
+//   "fecha": "1995-06-21",
+//   "sexo": "Male"
+// }, {
+//   "id": 15,
+//   "nombre": "Ilse",
+//   "apellido": "Keiling",
+//   "fecha": "2002-08-01",
+//   "sexo": "Female"
+// }, {
+//   "id": 16,
+//   "nombre": "Reynard",
+//   "apellido": "Cockshut",
+//   "fecha": "1954-04-24",
+//   "sexo": "Male"
+// }, {
+//   "id": 17,
+//   "nombre": "Lisa",
+//   "apellido": "Durker",
+//   "fecha": "1997-07-24",
+//   "sexo": "Female"
+// }, {
+//   "id": 18,
+//   "nombre": "Mohandis",
+//   "apellido": "De Laci",
+//   "fecha": "1974-03-30",
+//   "sexo": "Male"
+// }, {
+//   "id": 19,
+//   "nombre": "Hardy",
+//   "apellido": "McClaughlin",
+//   "fecha": "1963-09-23",
+//   "sexo": "Male"
+// }, {
+//   "id": 20,
+//   "nombre": "Raf",
+//   "apellido": "Petheridge",
+//   "fecha": "1959-04-30",
+//   "sexo": "Female"
+// }, {
+//   "id": 21,
+//   "nombre": "Howard",
+//   "apellido": "Piser",
+//   "fecha": "1964-08-22",
+//   "sexo": "Male"
+// }, {
+//   "id": 22,
+//   "nombre": "Esma",
+//   "apellido": "Shoubridge",
+//   "fecha": "1953-02-05",
+//   "sexo": "Female"
+// }, {
+//   "id": 23,
+//   "nombre": "Tad",
+//   "apellido": "O'Currigan",
+//   "fecha": "1972-08-10",
+//   "sexo": "Male"
+// }, {
+//   "id": 24,
+//   "nombre": "Pamela",
+//   "apellido": "Patching",
+//   "fecha": "1991-07-10",
+//   "sexo": "Female"
+// }, {
+//   "id": 25,
+//   "nombre": "Caleb",
+//   "apellido": "McPhee",
+//   "fecha": "1987-03-17",
+//   "sexo": "Male"
 }];
 var id =25;
 app.get("/login",function(req,res){
@@ -234,12 +237,12 @@ app.post("/nueva",function(req,res){
         
        console.log(req.body);
         if((req.body.nombre!= undefined&&req.body.nombre!= "") &&(req.body.apellido!= undefined&&req.body.apellido!= "") 
-			&&  (req.body.fecha!= undefined&&req.body.fecha!= "") && (req.body.sexo!= undefined&&req.body.sexo!= "")){
+			&&  (req.body.fecha!= undefined&&req.body.fecha!= "") && (req.body.sexo!= undefined&&req.body.sexo!= "")&& (req.body.avatar!= undefined && req.body.avatar!= "")){
 	
 			id = id +1;
        
 			
-			var data = {"id":id,"nombre":req.body.nombre,"apellido":req.body.apellido,"fecha":req.body.fecha,"sexo":req.body.sexo};
+			var data = {"id":id,"nombre":req.body.nombre,"apellido":req.body.apellido,"fecha":req.body.fecha,"sexo":req.body.sexo, "avatar":req.body.avatar};
 				personas.push(data);
                 res.send(data);    
      
@@ -255,7 +258,7 @@ app.post("/editar",function(req,res){
         
        console.log(req.body);
         if((req.body.id!= undefined&&req.body.id!= "") &&(req.body.nombre!= undefined&&req.body.nombre!= "") &&(req.body.apellido!= undefined&&req.body.apellido!= "") 
-			&&  (req.body.fecha!= undefined&&req.body.fecha!= "") && (req.body.sexo!= undefined&&req.body.sexo!= "")){
+			&&  (req.body.fecha!= undefined&&req.body.fecha!= "") && (req.body.sexo!= undefined&&req.body.sexo!= "")&& (req.body.avatar!= undefined && req.body.avatar!= "")){
 	
 			
         
@@ -264,7 +267,8 @@ app.post("/editar",function(req,res){
 						personas[i].nombre=req.body.nombre;
 						personas[i].apellido=req.body.apellido;
 						personas[i].fecha=req.body.fecha;
-						personas[i].sexo=req.body.sexo;
+            personas[i].sexo=req.body.sexo;
+            personas[i].avatar=req.body.avatar;
 							res.send(req.body);    
 							return;
 					}

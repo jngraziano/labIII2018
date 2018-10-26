@@ -54,18 +54,18 @@
                 <input type="text" id="apellidoE" placeholder="Ingrese Apellido..."style="text-align:center">
                 <br><br>
                 <!-- INPUT Fecha -->
-                <p>Fecha (AAAA/MM/DD):</p>
-                <input type="text" id="fechaE" placeholder="Ingrese fecha..."style="text-align:center">
+                <p id="PfechaE">Fecha:</p>
+                <input type="date" id="fechaE" style="text-align:center">
                 <br><br>
                 
                 <!-- SELECT SEXO-->
-                <label for="txtSexo">Sexo:</label><br>
-                <input type="checkbox" name="radFemenino" id="radFemenino">Femenino<br>
-                <input type="checkbox" name="radMasculino" id="radMasculino">Masculino<br>
+               <label id=labelSexoE for="txtSexo">Sexo:</label><br>
+               <input type="radio" class="radioC" name="radFemenino" id="radFemeninoE">Femenino<br>
+               <input type="radio" class="radioC" name="radMasculino" id="radMasculinoE">Masculino<br>
             
                 <br>
                 <p id="Pfile">Modificar avatar:</p>
-                <input type="file" id="btnimg">
+                <input type="file" id="inputImgE" accept="image/*" required>
                 <br><br>
                 
                 <button class="btnVerde" id="btnModificar">Modificar</button>
@@ -89,18 +89,18 @@
                <input type="text" id="apellidoA" placeholder="Ingrese Apellido..."style="text-align:center">
                <br><br>
                <!-- INPUT Fecha -->
-               <p id="Pfecha">Fecha (AAAA/MM/DD):</p>
-               <input type="text" id="fechaA" placeholder="Ingrese fecha..."style="text-align:center">
+               <p id="PfechaA">Fecha:</p>
+               <input type="date" id="fechaA" style="text-align:center">
                <br><br>
                
                <!-- SELECT SEXO-->
-               <label for="txtSexo">Sexo:</label><br>
-               <input type="checkbox" name="radFemenino" id="radFemeninoA">Femenino<br>
-               <input type="checkbox" name="radMasculino" id="radMasculinoA">Masculino<br>
+               <label id=labelSexoA for="txtSexo">Sexo:</label><br>
+               <input type="radio" class="radioC" name="radFemenino" id="radFemeninoA">Femenino<br>
+               <input type="radio" class="radioC" name="radMasculino" id="radMasculinoA">Masculino<br>
            
                <br>
                <p id="Pfile">Ingrese avatar:</p>
-               <input type="file" id="btnimg">
+               <input type="file" id="inputImgA" accept="image/*" required>
                <br><br>
 
                <button class="btnVerde" id="btnAgregarConfirm">Agregar 
