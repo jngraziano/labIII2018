@@ -51,10 +51,7 @@ $(document).ready(function () {
                    else{
                     $(target.nextSibling).toggle();
                    }               
-        
-                   
-                   
-                   
+ 
                       
                   });
 
@@ -71,14 +68,21 @@ $(document).ready(function () {
                              })
                              
                              fReader.readAsDataURL(targetInput.files[0]);
-
+                    
                     $(event.target.previousSibling).attr("src", imgPost);
                     
+                    $(event.target).toggle();
+
+                     var spinner = document.getElementById("spinner");
+                     spinner.style.display = "block";
+
                     $.post("http://localhost:3000/editarFoto",
                     {
                             id: idSeleccionado, 
                             foto: imgPost
 
+                    },function () {
+                        transicionSpinner();
                     }                                  
                     );
                             
@@ -86,7 +90,7 @@ $(document).ready(function () {
                   });
 
                     
- 
+                  
                   
                         
         
@@ -104,7 +108,7 @@ $(document).ready(function () {
                 
             }
 
-           
+            
                     
             
     })//fin $.get
