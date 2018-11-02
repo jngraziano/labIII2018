@@ -40,16 +40,16 @@ $(document).ready(function () {
 
                 $("img").on("click", function () {
 
-                   var target = event.target || event.srcElement;
+                //    var target = event.target || event.srcElement;
+                    var target = event.target;
+
                     
                    if(target.nextSibling.hidden == true)
                    {
-                    target.nextSibling.hidden=false;
+                       $(target.nextSibling).toggle();
                    }
                    else{
-                    target.nextSibling.hidden = true;
-                    
-
+                    $(target.nextSibling).toggle();
                    }               
         
                    
@@ -60,29 +60,28 @@ $(document).ready(function () {
 
                   $("input").change(function () { 
                     var imgPost="";
-                    var target = event.target;
- 
-                     var input =  target;
- 
+                    var targetInput = event.target;
+                    var idSeleccionado = $(this).parent().siblings(":first").text();
  
                              var fReader = new FileReader();
                              fReader.addEventListener("load", function (e) {
-                                
-                            
+
                                  imgPost=e.target.result;
- 
                                  
                              })
                              
-                             fReader.readAsDataURL(input.files[0]);
- 
-                             $.post("http://localhost:3000/editarFoto",
-                            {
-                                        id: 1, 
-                                        foto: imgPost
-     
-                             }                                  
-                             ); 
+                             fReader.readAsDataURL(targetInput.files[0]);
+
+                    $(event.target.previousSibling).attr("src", imgPost);
+                    
+                    $.post("http://localhost:3000/editarFoto",
+                    {
+                            id: idSeleccionado, 
+                            foto: imgPost
+
+                    }                                  
+                    );
+                            
                       
                   });
 
