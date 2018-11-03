@@ -41,6 +41,8 @@ $(document).ready(function () {
                 $("img").on("click", function () {
 
                 //    var target = event.target || event.srcElement;
+                    
+                    
                     var target = event.target;
 
                     
@@ -54,57 +56,53 @@ $(document).ready(function () {
  
                       
                   });
-
-                  $("input").change(function () { 
+                $("input").change(function () { 
                     var imgPost="";
                     var targetInput = event.target;
                     var idSeleccionado = $(this).parent().siblings(":first").text();
- 
-                             var fReader = new FileReader();
-                             fReader.addEventListener("load", function (e) {
+                   
+            
+                    // var idOtraforma = targetInput.parentNode.parentNode.setAtributte('id');
 
+                             var fReader = new FileReader();
+                            
+                             fReader.addEventListener("load", function (e) {
+            
                                  imgPost=e.target.result;
-                                 
-                             })
+                                 //console.log(e.target.result);
+                                 $(event.target.previousSibling).attr("src", imgPost);
+                                 // $(event.target).toggle();
+                                 $.post("http://localhost:3000/editarFoto",
+                                {
+                                        id: idSeleccionado, 
+                                        foto: imgPost
+                        
+                                },function () {
+                                    
+                                    transicionSpinner();
+                                }                                  
+                                 );
+    
+                             });
                              
                              fReader.readAsDataURL(targetInput.files[0]);
+                           
+                            
+                            
+                             
                     
-                    $(event.target.previousSibling).attr("src", imgPost);
                     
-                    $(event.target).toggle();
-
+                    
+            
                      var spinner = document.getElementById("spinner");
                      spinner.style.display = "block";
-
-                    $.post("http://localhost:3000/editarFoto",
-                    {
-                            id: idSeleccionado, 
-                            foto: imgPost
-
-                    },function () {
-                        transicionSpinner();
-                    }                                  
-                    );
-                            
-                      
-                  });
-
+            
                     
-                  
-                  
-                        
-        
+                    
+                });
 
-                   
-    
-                        // var spinner = document.getElementById("spinner");
-                        // spinner.style.display = "block";
-
-                            
-       
-    
-
-
+                 
+                 
                 
             }
 
@@ -143,6 +141,11 @@ $(document).ready(function () {
         eliminarPersona();
         
     });
+    $("input").change(function () { 
+        imgPOST();
+                
+          
+    });
     
 
     // $(".radioC").click(function () {
@@ -177,6 +180,9 @@ $(document).ready(function () {
     
 })//fin del document.ready
 
+
+
+  
 
 //#region Como muestro la tabla 
 

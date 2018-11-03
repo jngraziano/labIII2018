@@ -27,6 +27,9 @@ th, td {
     padding: 3px;
    
 }
+img{
+  border-radius: 200px;
+}
 tr{
   background-color: white;
 }

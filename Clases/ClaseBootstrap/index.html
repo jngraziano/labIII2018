@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Clase bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+
+    <!-- bootstrapCDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- recordar agregar aca abajo jquery si quiero animaciones de bootstrap -->
+    <!-- jqueryCDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="crossorigin="anonymous"></script>
+
+</head>
+<body style="margin:75px">
+    <div class="container">
+   
+   <h1 style="color:blue">Clase Bootstrap</h1>
+
+    <!-- BOTONES -->
+    <h2>Lista de botones bootstrap</h2><br>
+    <p>Ordenado por tamaño:</p>
+    <button class="btn btn-success btn-lg">Success</button>
+    <button class="btn btn-info btn-md">Info</button>
+    <button class="btn btn-danger btn-sm">Danger</button>
+    <br><br>
+    <p>Otras clases de botones:</p>
+    <button class="btn btn-warning btn-xs">Warning</button>
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-link">Link</button>
+    <br><br>
+    <!-- FILAS/COLUMNAS -->
+    <h2>Resumen de row/col bootstrap</h2><br>
+    <p>
+        Las columnas y todo, van adentro del div class row.
+        Divide la pantalla en 12 columnas.
+        Si me paso de 12, lo pasa para abajo lo que tenga.<br>
+        Recomendacion: si es sm es mejor poner 12 a las columnas asi ocupa el 100% c/u y no pierdo ver informacion.
+        <br>
+        EJ:<br>
+        col-4  (lo que estoy diciendo es que de 12 columnas que divide bootstrap a la pantalla, tome 4).<br>
+        col-sm-5 (si tiene el sm, es si la pantalla es chica (sm) que tome 5 columnas).
+        <br>
+        Recordar setear cada uno de los tipos de tamaño de pantalla con los col.
+        Si uso col y nada mas, por defecto va a dividir en partes iguales todo lo que este dentro del row.
+        <br><br>
+        <h4>Tipos de alineaciones (verticales/horizontales):</h4>
+        Sin el self, se lo asigna al row. Sino con self es para el item.<br><br>
+        <h5>EJ verticales:</h5>
+        row align-items-start<br>
+        row align-items-center<br>
+        row align-items-end<br><br>
+
+        align-self-start<br>
+        align-self-center<br>
+        align-self-end<br><br>
+
+        <h5>EJ horizontales:</h5>
+        row justify-content-end
+        row justify-content-between
+        row justify-content-around
+        <br><br>
+        <h2> Vimos tambien:</h2>
+        row offset (no se usa mas, salteo columnas).<br>
+        class table: <br>
+        table-danger(igual que los botones)<br>
+        table-dark<br>
+        table-stripped<br>
+        table-bordered<br>
+        table-hover<br>
+        <br><br>
+        class input:<br>
+        form-group<br>
+        form-group row (pone uno al lado de otro los elementos<br> 
+        form-control para el tag select
+        <br><br>
+        btn-group-vertical<br>
+        btn-group-horizontal<br><br>
+        img float-right float-left<br>
+        vimos tambien barra navegacion, nav dropdown,etc (nav usando ul y li)<br>
+        vimos un ejemplo de como son las paginas en general (header,footer,etc) usando d-none d-sm-block para ocultarlo si 
+        el tamaño es sm.<br><br>
+
+        <h1>archivo ejemplo en Info.</h1>
+
+
+
+
+    </p>
+
+
+
+
+
+
+    </div>
+
+</body>
+</html>
