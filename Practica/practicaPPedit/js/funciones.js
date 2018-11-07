@@ -120,16 +120,23 @@ $(document).ready(function () {
     $("#navHeader").click(function () {
         $("#divTable").toggle(1000);
 
-       
-        $("#divPresentacion").show(1000,function () { $("#divPresentacion").css("visibility","visible");  });
+        if ( $("#divPresentacion").css("visibility") == "hidden") {
+
+
+            $("#divPresentacion").css("visibility","visible");
+        }
+        else{
+
+            $("#divPresentacion").css("visibility","hidden");
+        }
        
       })
 
-    // $("#tBodyTable").dblclick(function () {
+    $("#tBodyTable").dblclick(function () {
         
-    //     muestroDivconClick();
+        muestroDivconClick();
         
-    // })//fin td.dblclick
+    })//fin td.dblclick
 
     $("#btnAgregar").click(function() { 
        $("#divOculto2").show(1000);
