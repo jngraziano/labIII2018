@@ -13,6 +13,13 @@ namespace practicaSP{
          
         });
 
+        $("#btnLimpia").click(function () {
+
+            localStorage.clear();
+            location.reload();
+            
+        })
+
 
         mostrarAnimales();
 
@@ -34,30 +41,43 @@ namespace practicaSP{
 
            // window.location.href="./index2.html"; //Tomo otro html
            let nombreA:string = String($("#nombreA").val());
-           let patasA:number = Number($("#patasA").val());
+           let sondioA:string = String($("#sondioA").val());
 
            let radGatoA:boolean = $("#radGatoA").prop("checked");
            let radPerroA:boolean = $("#radPerroA").prop("checked");
+           let radPajaroA:boolean = $("#radPajaroA").prop("checked");
 
-           let animales:Array<animal> = new Array<animal>();
+
+            let animalesLista = JSON.parse(localStorage.getItem("Localanimal") || "[]");
+
+            // let animales:Array<animal> = new Array<animal>();
+            // let animales:JSON;
             
            if (radGatoA) {
-            let unGato: gato = new gato(nombreA,patasA);
-            animales.push(unGato);
+            let unGato: gato = new gato(nombreA,sondioA);
+            animalesLista.push(JSON.stringify(unGato));
                    
            }
            else if (radPerroA) {
-            let unPerro: perro = new perro(nombreA,patasA);
-            animales.push(unPerro);
+            let unPerro: perro = new perro(nombreA,sondioA);
+            animalesLista.push(JSON.stringify(unPerro));
+           }
+           else{
+            let unPajaro: pajaro = new pajaro(nombreA,sondioA);
+            animalesLista.push(JSON.stringify(unPajaro));
+
            }
         //    animales.forEach(Programa.hablar);
 
-           let jsonAnimales:string = JSON.stringify(animales);
+           let stringAnimalesLista = JSON.stringify(animalesLista);
+          
 
-           localStorage.setItem("key", jsonAnimales);
-        //    let unJson = JSON.parse(localStorage.getItem("key")); //me dijo el profesor
+           localStorage.setItem("Localanimal", stringAnimalesLista);
+
+           location.reload();
+        //    let unJson = JSON.parse(localStorage.getItem("animales")); //me dijo el profesor
         //    alert(unJson[0]);
-        //    alert(localStorage.getItem("key"));
+        //    alert(localStorage.getItem("animales"));
         })
        
         
@@ -67,7 +87,7 @@ namespace practicaSP{
 
 
     function mostrarAnimales():void {
-        let animalesString:string|null =  JSON.parse(localStorage.getItem("key") || "[]");    
+        let animalesStorage:any|null =  JSON.parse(localStorage.getItem("Localanimal") || "[]");    
     
         // let stringFinal = animalesString
         //                         .filter(function(empleado){
@@ -82,23 +102,27 @@ namespace practicaSP{
         var tBodyTable = $('#tBodyTable')[0];
         var seccionPersonas:string = "";
 
-        // for (let i = 0; i < animalesString.length; i++) {
-        //     alert(animalesString[i]);
-            // seccionPersonas += "<tr>  <td hidden>"+ personasCompleto[i].id       + "</td>" +
-            //                               "<td>" +      personasCompleto[i].nombre   + "</td>" +
-            //                               "<td>" +      personasCompleto[i].apellido + "</td>" +
-            //                               "<td>" +      personasCompleto[i].fecha    + "</td>" +
-            //                               "<td>" +      personasCompleto[i].sexo     + "</td>"+
-            //                               "<td>" + "<img src='"+ personasCompleto[i].foto + "'id='imgMuestro' height='80'>"+
-            //                               "<input type='file' "+" hidden>"+"</td>"+
+        
 
-                                    
-                                         
+        for (let i = 0; i < animalesStorage.length; i++) {
+            
+            let animalActual = JSON.parse(animalesStorage[i]);
 
-            //                      "</tr>" ;
-            // tBodyTable.innerHTML = seccionPersonas;
+            seccionPersonas += "<tr>       <td>" + animalActual.nombre      + "</td>" +
+                                          "<td>" +      animalActual.cantPatas  + "</td>" +
+                                          "<td>" +      animalActual.tipo  + "</td>" +
+                                          "<td>" +      animalActual.ruido  + "</td>" +
+                                        //   "<td>" +      personasCompleto[i].apellido + "</td>" +
+                                        //   "<td>" +      personasCompleto[i].fecha    + "</td>" +
+                                        //   "<td>" +      personasCompleto[i].sexo     + "</td>"+
+                                        //   "<td>" + "<img src='"+ personasCompleto[i].foto + "'id='imgMuestro' height='80'>"+
+                                        //   "<input type='file' "+" hidden>"+"</td>"+
+                                        "<td>"+"<button class='btn btn-outline-warning' id='btnModif'>Modificar"+"<i class='fa fa-folder'></i>"+"</button>"+
+                                        "<button class='btn btn-outline-danger ' id='btnEliminar'>Eliminar"+"<i class='fa fa-trash'></i></button></td>"+
+                                 "</tr>" ;
+            tBodyTable.innerHTML = seccionPersonas;
 
-    // }
+    }
 }
 
 }

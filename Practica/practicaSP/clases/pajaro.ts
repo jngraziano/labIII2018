@@ -1,11 +1,11 @@
 namespace practicaSP{
 
-    export class gato extends animal {
+    export class pajaro extends animal {
 
         public ruido:string;
 
         constructor(Nombre:string,Ruido:string) {
-            super(Nombre,4,"gato");
+            super(Nombre,2,"pajaro");
 
             this.ruido = Ruido;
 
@@ -18,4 +18,5 @@ namespace practicaSP{
 
     
 }
+
 

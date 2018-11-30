@@ -13,12 +13,11 @@ var practicaSP;
 (function (practicaSP) {
     var gato = /** @class */ (function (_super) {
         __extends(gato, _super);
-        function gato(Nombre, cantidadP) {
-            return _super.call(this, Nombre, cantidadP) || this;
+        function gato(Nombre, Ruido) {
+            var _this = _super.call(this, Nombre, 4, "gato") || this;
+            _this.ruido = Ruido;
+            return _this;
         }
-        gato.prototype.haceRuido = function (input) {
-            return "miau";
-        };
         return gato;
     }(practicaSP.animal));
     practicaSP.gato = gato;

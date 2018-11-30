@@ -2,9 +2,10 @@
 var practicaSP;
 (function (practicaSP) {
     var animal = /** @class */ (function () {
-        function animal(Nombre, cantidadP) {
+        function animal(Nombre, cantidadP, tipo) {
             this.nombre = Nombre;
             this.cantPatas = cantidadP;
+            this.tipo = tipo;
         }
         return animal;
     }());

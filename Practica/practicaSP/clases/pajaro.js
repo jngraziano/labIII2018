@@ -11,14 +11,14 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var practicaSP;
 (function (practicaSP) {
-    var perro = /** @class */ (function (_super) {
-        __extends(perro, _super);
-        function perro(Nombre, Ruido) {
-            var _this = _super.call(this, Nombre, 4, "perro") || this;
+    var pajaro = /** @class */ (function (_super) {
+        __extends(pajaro, _super);
+        function pajaro(Nombre, Ruido) {
+            var _this = _super.call(this, Nombre, 2, "pajaro") || this;
             _this.ruido = Ruido;
             return _this;
         }
-        return perro;
+        return pajaro;
     }(practicaSP.animal));
-    practicaSP.perro = perro;
+    practicaSP.pajaro = pajaro;
 })(practicaSP || (practicaSP = {}));
