@@ -1,10 +1,14 @@
 "use strict";
 var practicaSP;
 (function (practicaSP) {
+    var usuarioID;
     $(document).ready(function () {
         $("#addPopup").click(function () {
             // $("#divOculto1").show(1000);
-            $("#divOculto1").css("visibility", "visible");
+            $("#btnModificar").css("visibility", "hidden");
+            $("#btnEliminar").css("visibility", "hidden");
+            $("#btnAgregar").css("visibility", "visible");
+            $("#divTipo").css("visibility", "visible");
         });
         $("#btnCerrar").click(function () {
             $("#divOculto1").css("visibility", "hidden");
@@ -16,9 +20,43 @@ var practicaSP;
         mostrarAnimales();
         $("#radGatoA").on("click", function () {
             $("#radPerroA").prop("checked", false);
+            $("#radPajaroA").prop("checked", false);
         });
         $("#radPerroA").on("click", function () {
             $("#radGatoA").prop("checked", false);
+            $("#radPajaroA").prop("checked", false);
+        });
+        $("#radPajaroA").on("click", function () {
+            $("#radGatoA").prop("checked", false);
+            $("#radPerroA").prop("checked", false);
+        });
+        $("#tablaID tbody tr").dblclick(function (e) {
+            $('#myModal').modal('show');
+            $("#btnModificar").css("visibility", "visible");
+            $("#btnEliminar").css("visibility", "visible");
+            $("#btnAgregar").css("visibility", "hidden");
+            var idSeleccionado = $(e.target).prev().text();
+            var nombreSelec = $(e.target).text();
+            var cantPatSelec = $(e.target).next().text();
+            var tipoSelec = $(e.target).next().next().text();
+            var ruidoSelec = $(e.target).next().next().next().text();
+            $("#divTipo").css("visibility", "hidden");
+            // $("#nombreA").text() = nombreSelec;
+            // $("#sondioA").text() = ruidoSelec;
+            // let fila = $(target).parent();
+            // let celdas = fila.$("td");
+            // usuarioID= celdas[0].innerHTML;    
+            // document.getElementById("nombreE").value= celdas[1].innerHTML;
+            // document.getElementById("apellidoE").value=celdas[2].innerHTML;
+            // document.getElementById("fechaE").value=celdas[3].innerHTML;
+            // document.getElementById("divOculto").style.visibility = "visible";
+            // usuarioGlobal.id= celdas[0].innerHTML;  
+            //    var idSeleccionado = $(this).parent().siblings(":first").text();
+            //    if(target.nextSibling.hidden == true)
+            //    fila = target.parentNode;
+            //    var celdas = fila.getElementsByTagName("td");
+            //    $("#btnModificar")
+            // $('body').removeClass('modal-open'); 
         });
         $("#btnAgregar").click(function () {
             // window.location.href="./index2.html"; //Tomo otro html
@@ -26,7 +64,7 @@ var practicaSP;
             var sondioA = String($("#sondioA").val());
             var radGatoA = $("#radGatoA").prop("checked");
             var radPerroA = $("#radPerroA").prop("checked");
-            var radPajaroA = $("#radPajaroA").prop("checked");
+            //    let radPajaroA:boolean = $("#radPajaroA").prop("checked");
             var animalesLista = JSON.parse(localStorage.getItem("Localanimal") || "[]");
             // let animales:Array<animal> = new Array<animal>();
             // let animales:JSON;
@@ -67,7 +105,8 @@ var practicaSP;
         var seccionPersonas = "";
         for (var i = 0; i < animalesStorage.length; i++) {
             var animalActual = JSON.parse(animalesStorage[i]);
-            seccionPersonas += "<tr>       <td>" + animalActual.nombre + "</td>" +
+            seccionPersonas += "<tr>      <td hidden>" + animalActual.ID + "</td>" +
+                "<td>" + animalActual.nombre + "</td>" +
                 "<td>" + animalActual.cantPatas + "</td>" +
                 "<td>" + animalActual.tipo + "</td>" +
                 "<td>" + animalActual.ruido + "</td>" +
@@ -76,8 +115,8 @@ var practicaSP;
                 //   "<td>" +      personasCompleto[i].sexo     + "</td>"+
                 //   "<td>" + "<img src='"+ personasCompleto[i].foto + "'id='imgMuestro' height='80'>"+
                 //   "<input type='file' "+" hidden>"+"</td>"+
-                "<td>" + "<button class='btn btn-outline-warning' id='btnModif'>Modificar" + "<i class='fa fa-folder'></i>" + "</button>" +
-                "<button class='btn btn-outline-danger ' id='btnEliminar'>Eliminar" + "<i class='fa fa-trash'></i></button></td>" +
+                // "<td>"+"<button class='btn btn-outline-warning' data-toggle='modal' data-target='#myModal' id='addPopup' hidden=>Modificar"+"<i class='fa fa-folder'></i>"+"</button>"+
+                // "<button class='btn btn-outline-danger' data-toggle='modal' data-target='#myModal' id='addPopup'>Eliminar"+"<i class='fa fa-trash'></i></button></td>"+
                 "</tr>";
             tBodyTable.innerHTML = seccionPersonas;
         }

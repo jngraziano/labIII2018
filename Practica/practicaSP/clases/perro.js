@@ -15,10 +15,23 @@ var practicaSP;
         __extends(perro, _super);
         function perro(Nombre, Ruido) {
             var _this = _super.call(this, Nombre, 4, "perro") || this;
+            var maximo = calcularID();
+            maximo++;
+            _this.ID = maximo;
             _this.ruido = Ruido;
             return _this;
         }
         return perro;
     }(practicaSP.animal));
     practicaSP.perro = perro;
+    function calcularID() {
+        var animalesStorage = JSON.parse(localStorage.getItem("Localanimal") || "[]");
+        var valormax = arrayMax(animalesStorage);
+        return valormax;
+    }
+    function arrayMax(arr) {
+        return arr.reduce(function (p, v) {
+            return (p < JSON.parse(v).ID ? JSON.parse(v).ID : p);
+        }, 0);
+    }
 })(practicaSP || (practicaSP = {}));
